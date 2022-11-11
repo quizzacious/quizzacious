@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -10,11 +10,16 @@ import { Quiz } from '../../api/quiz/Quiz';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
-  quantity: Number,
-  condition: {
+  question: String,
+  answer1: String,
+  answer2: String,
+  answer3: String,
+  answer4: String,
+  owner: String,
+  answerFinal: {
     type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
+    allowedValues: ['1', '2', '3', '4'],
+    defaultValue: '1',
   },
 });
 
@@ -25,10 +30,10 @@ const MakeQuiz = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition } = data;
+    const { name, question, answer1, answer2, answer3, answer4 , answerFinal } = data;
     const owner = Meteor.user().username;
     Quiz.collection.insert(
-      { name, quantity, condition, owner },
+      { name, question, answer1, answer2, answer3, answer4 , answerFinal, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -51,8 +56,12 @@ const MakeQuiz = () => {
             <Card>
               <Card.Body>
                 <TextField name="name" />
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
+                <TextField name="question" />
+                <TextField name="answer1" />
+                <TextField name="answer2" />
+                <TextField name="answer3" />
+                <TextField name="answer4" />
+                <SelectField name="answerFinal" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>

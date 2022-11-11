@@ -5,9 +5,10 @@
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    { "name": "First Question", "question": "1 + 1", "answer1": "0", "answer2": "1", "answer3": "2", "answer4": "3", "owner": "john@foo.com", "answerFinal": "2" },
+    { "name": "Second Question", "question": "2 + 2", "answer1": "0", "answer2": "2", "answer3": "4", "answer4": "6", "owner": "john@foo.com", "answerFinal": "2" },
+
+    { "name": "First Admin Question", "question": "11 + 11", "answer1": "0", "answer2": "11", "answer3": "22", "answer4": "33", "owner": "admin@foo.com", "answerFinal": "2" },
+    { "name": "Second Admin Question", "question": "22 + 22", "answer1": "0", "answer2": "22", "answer3": "44", "answer4": "66", "owner": "admin@foo.com", "answerFinal": "2" }
   ]
 }

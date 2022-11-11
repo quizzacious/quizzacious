@@ -3,23 +3,27 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The QuizCollection. It encapsulates state and variable values for quiz.
  */
-class StuffsCollection {
+class QuizCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'QuizCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      quantity: Number,
+      question: String,
+      answer1: String,
+      answer2: String,
+      answer3: String,
+      answer4: String,
       owner: String,
-      condition: {
+      answerFinal: {
         type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
+        allowedValues: ['1', '2', '3', '4'],
+        defaultValue: '1',
       },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -31,7 +35,7 @@ class StuffsCollection {
 }
 
 /**
- * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * The singleton instance of the QuizCollection.
+ * @type {QuizCollection}
  */
-export const Quiz = new StuffsCollection();
+export const Quiz = new QuizCollection();

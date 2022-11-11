@@ -30,9 +30,12 @@ const ProfileAdmin = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Quantity</th>
-                <th>Condition</th>
-                <th>Owner</th>
+                <th>Question</th>
+                <th>answer1</th>
+                <th>answer2</th>
+                <th>answer3</th>
+                <th>answer4</th>
+                <th>answerFinal</th>
               </tr>
             </thead>
             <tbody>
