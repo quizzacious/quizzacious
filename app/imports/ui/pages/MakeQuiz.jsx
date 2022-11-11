@@ -30,10 +30,10 @@ const MakeQuiz = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, question, answer1, answer2, answer3, answer4 , answerFinal } = data;
+    const { name, question, answer1, answer2, answer3, answer4, answerFinal } = data;
     const owner = Meteor.user().username;
     Quiz.collection.insert(
-      { name, question, answer1, answer2, answer3, answer4 , answerFinal, owner },
+      { name, question, answer1, answer2, answer3, answer4, answerFinal, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

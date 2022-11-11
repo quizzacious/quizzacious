@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const QuizItem = ({ quiz: quiz }) => (
+const QuizItem = ({ quiz }) => (
   <tr>
     <td>{quiz.name}</td>
     <td>{quiz.quantity}</td>

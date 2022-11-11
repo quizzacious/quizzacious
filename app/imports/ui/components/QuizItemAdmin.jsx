@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
-const QuizItemAdmin = ({ quiz: quiz }) => (
+const QuizItemAdmin = ({ quiz }) => (
   <tr>
     <td>{quiz.name}</td>
     <td>{quiz.quantity}</td>
