@@ -8,7 +8,7 @@ import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
 import ProfileAdmin from '../pages/ProfileAdmin';
 import MakeQuiz from '../pages/MakeQuiz';
-import EditStuff from '../pages/EditStuff';
+import EditQuiz from '../pages/EditQuiz';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -31,7 +31,7 @@ const App = () => (
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
-        <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
+        <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
