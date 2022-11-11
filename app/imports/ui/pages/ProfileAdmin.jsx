@@ -31,11 +31,6 @@ const ProfileAdmin = () => {
               <tr>
                 <th>Name</th>
                 <th>Question</th>
-                <th>answer1</th>
-                <th>answer2</th>
-                <th>answer3</th>
-                <th>answer4</th>
-                <th>answerFinal</th>
               </tr>
             </thead>
             <tbody>
