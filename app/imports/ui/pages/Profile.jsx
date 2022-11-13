@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Card, Col, Container, Row, Table, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Quiz } from '../../api/quiz/Quiz';
 import QuizItem from '../components/QuizItem';
@@ -26,6 +26,15 @@ const Profile = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
+        <Col className="py-5">
+          <Card>
+            <Card.Body>
+              <Card.Header><Image src="https://github.com/philipmjohnson.png" /></Card.Header>
+              <Card.Title className="py-3">Phillip Johnson</Card.Title>
+              <Card.Text className="py-1">I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
         <Col md={7}>
           <Col className="text-center">
             <h2>Profile</h2>
@@ -33,13 +42,11 @@ const Profile = () => {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Question</th>
+                <th>Achievements</th>
+                <th>History</th>
+                <th>My Quizzes</th>
               </tr>
             </thead>
-            <tbody>
-              {quizzes.map((quiz) => <QuizItem key={quiz._id} quiz={quiz} />)}
-            </tbody>
           </Table>
         </Col>
       </Row>
