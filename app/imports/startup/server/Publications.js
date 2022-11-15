@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Quiz } from '../../api/quiz/Quiz';
+import { Quizzes } from '../../api/quiz/Quizzes';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -20,6 +21,9 @@ Meteor.publish(Quiz.adminPublicationName, function () {
   }
   return this.ready();
 });
+
+/** Define a publication to publish all quizzes. */
+Meteor.publish(Quizzes.userPublicationName, () => Quizzes.collection.find());
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

@@ -10,5 +10,44 @@
 
     { "name": "First Admin Question", "question": "11 + 11", "answer1": "0", "answer2": "11", "answer3": "22", "answer4": "33", "owner": "admin@foo.com", "answerFinal": "2" },
     { "name": "Second Admin Question", "question": "22 + 22", "answer1": "0", "answer2": "22", "answer3": "44", "answer4": "66", "owner": "admin@foo.com", "answerFinal": "2" }
+  ],
+
+  "defaultQuizzes": [
+    { "title": "Math Quiz", "subject": "math", "description": "A simple math quiz.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "admin@foo.com", "questions": [
+      {
+        "question": "2 + 2 = ?",
+        "answer1": "69",
+        "answer2": "420",
+        "answer3": "4",
+        "answer4": "yes",
+        "answerFinal": "3"
+      },
+      {
+        "question": "cos(pi) = ?",
+        "answer1": "mmm, pie...",
+        "answer2": "8 & 3/4",
+        "answer3": "insert funni answer",
+        "answer4": "-1",
+        "answerFinal": "4"
+      }
+    ]},
+    { "title": "Bad Quiz", "subject": "your mom", "description": "git rekt nerd.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "john@foo.com", "questions": [
+      {
+        "question": "u smell",
+        "answer1": "RUDE",
+        "answer2": "*Gasp!*",
+        "answer3": "So truuuuu",
+        "answer4": "Eekum Bokum",
+        "answerFinal": "3"
+      },
+      {
+        "question": "Gamer word",
+        "answer1": "CANCELED",
+        "answer2": "9x this question",
+        "answer3": "this is just to demonstrate a problematic quiz, plz don't hurt me",
+        "answer4": "-1",
+        "answerFinal": "1"
+      }
+    ]}
   ]
 }
