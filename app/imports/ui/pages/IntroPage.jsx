@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Intro = () => (
-  <Container>
-    <h1>HI</h1>
+  <Container className="text-center py-5">
+    <h1>Welcome to QUIZZACIOUS!</h1>
+    <Button href="/signin">Sign in</Button>
   </Container>
 );
 
