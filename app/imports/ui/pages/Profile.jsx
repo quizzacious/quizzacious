@@ -1,9 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row, Table, Image } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, Image, Stack, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Quiz } from '../../api/quiz/Quiz';
-import QuizItem from '../components/QuizItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Quiz documents. Use <QuizItem> to render each row. */
@@ -24,30 +23,43 @@ const Profile = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container>
       <Row className="justify-content-center">
         <Col className="py-5">
-          <Card>
+          <Card className="text-center h-100">
             <Card.Body>
-              <Card.Header><Image src="https://github.com/philipmjohnson.png" /></Card.Header>
+              <Card.Header><Image roundedCircle src="https://github.com/philipmjohnson.png" width="200px" /></Card.Header>
               <Card.Title className="py-3">Phillip Johnson</Card.Title>
               <Card.Text className="py-1">I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.</Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        <Col md={7}>
-          <Col className="text-center">
-            <h2>Profile</h2>
-          </Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Achievements</th>
-                <th>History</th>
-                <th>My Quizzes</th>
-              </tr>
-            </thead>
-          </Table>
+        <Col md={7} className="py-5">
+          <Stack gap={4}>
+            <Button href="https://quizzacious.github.io/" size="lg" variant="outline-secondary">Go to Quizzacious Documentation Site</Button>
+            <Card>
+              <Card.Header>
+                <Nav fill variant="tabs" defaultActiveKey="/home">
+                  <Nav.Item>
+                    <Nav.Link href="/home">Go back to Landing Page</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="/take">Goes to Take a quiz</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="/menu">Goes to Make a quiz</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Card.Header>
+              <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                  With supporting text below as a natural lead-in to additional content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </Stack>
         </Col>
       </Row>
     </Container>
