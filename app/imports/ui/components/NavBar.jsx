@@ -18,6 +18,9 @@ const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/">
           <h2>QUIZZACIOUS</h2>
         </Navbar.Brand>
+        <Nav>
+          <Nav.Link>Yo</Nav.Link>
+        </Nav>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
