@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Quiz } from '../../api/quiz/Quiz.js';
-import { Quizzes } from '../../api/quiz/Quizzes';
+import { Quizzes } from '../../api/quiz/Quizzes.js';
 
 /* eslint-disable no-console */
 
@@ -23,10 +23,10 @@ const addData = (data) => {
   Quizzes.collection.insert(data);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the QuizzesCollection if empty.
 if (Quizzes.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+  if (Meteor.settings.defaultQuizzes) {
+    console.log('Creating default quizzes.');
+    Meteor.settings.defaultQuizzes.forEach(data => addData(data));
   }
 }

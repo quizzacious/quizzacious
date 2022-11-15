@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The QuizCollection. It encapsulates state and variable values for quiz.
+ * The QuizzesCollection. It encapsulates state and variable values for quiz.
  */
 class QuizzesCollection {
   constructor() {
