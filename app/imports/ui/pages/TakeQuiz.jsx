@@ -26,7 +26,7 @@ const TakeQuiz = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col md={4}>
           <Col className="text-center">
             <h2>Take Quiz</h2>
           </Col>
@@ -34,7 +34,6 @@ const TakeQuiz = () => {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Question</th>
               </tr>
             </thead>
             <tbody>
