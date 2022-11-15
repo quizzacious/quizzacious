@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
 const QuizItemAdmin = ({ quiz }) => (
@@ -8,6 +9,9 @@ const QuizItemAdmin = ({ quiz }) => (
     <td>{quiz.quantity}</td>
     <td>{quiz.condition}</td>
     <td>{quiz.owner}</td>
+    <td>
+      <Link to={`/edit/${quiz._id}`}>Edit</Link>
+    </td>
   </tr>
 );
 

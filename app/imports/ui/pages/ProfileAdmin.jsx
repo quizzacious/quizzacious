@@ -25,14 +25,9 @@ const ProfileAdmin = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col md={7}>
-          <Col className="text-center"><h2>Profile (Admin)</h2></Col>
+          <Col className="text-center"><h2>Admin</h2></Col>
           <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Question</th>
-              </tr>
-            </thead>
+            <th>Quizzes</th>
             <tbody>
               {quizzes.map((quiz) => <QuizItemAdmin key={quiz._id} quiz={quiz} />)}
             </tbody>
