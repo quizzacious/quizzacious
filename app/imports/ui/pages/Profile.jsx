@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row, Button, Image, Stack, Nav } from 'react-bootstrap';
+import { Card, Col, Container, Row, Image, Stack, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Quiz } from '../../api/quiz/Quiz';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -8,7 +8,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 /* Renders a table containing all of the Quiz documents. Use <QuizItem> to render each row. */
 const Profile = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs: quizzes } = useTracker(() => {
+  const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Quiz documents.
@@ -36,7 +36,6 @@ const Profile = () => {
         </Col>
         <Col md={7} className="py-5">
           <Stack gap={4}>
-            <Button href="https://quizzacious.github.io/" size="lg" variant="outline-secondary">Go to Quizzacious Documentation Site</Button>
             <Card>
               <Card.Header>
                 <Nav fill variant="tabs" defaultActiveKey="/home">
@@ -52,11 +51,10 @@ const Profile = () => {
                 </Nav>
               </Card.Header>
               <Card.Body>
-                <Card.Title>Special title treatment</Card.Title>
+                <Card.Title>Mockup Tab</Card.Title>
                 <Card.Text>
-                  With supporting text below as a natural lead-in to additional content.
+                  Does something corresponding to the Tab chosen
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
               </Card.Body>
             </Card>
           </Stack>
