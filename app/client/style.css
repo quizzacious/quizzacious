@@ -9,8 +9,12 @@
   --matr-navbar-highlight-text: black;
 }
 
-.font{
+.font {
   font-family: Elephant, cursive;
+}
+
+.font1 {
+  font-family: Sylfaen, cursive;
 }
 
 /* Change bootstrap variable values.
@@ -19,7 +23,7 @@
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
   color: whitesmoke;
-  background: fixed center url("images/forest.gif");
+  background: fixed center url("images/gwy.gif");
   background-size: cover;
 }
 

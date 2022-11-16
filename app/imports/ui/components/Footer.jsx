@@ -3,19 +3,22 @@ import { Col, Container, Nav, Row } from 'react-bootstrap';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
-  <footer className="mt-auto py-3 bg-light text-center px-5">
+  <footer className="mt-auto py-3 bg-light text-center px-5 font1">
     <Row>
       <Col>
         <Container>
           <Nav className="justify-content-center">
             <Nav.Link href="https://quizzacious.github.io/" size="lg" variant="outline-secondary">
-              <strong>ABOUT THIS SITE</strong>
+              ABOUT THIS SITE
             </Nav.Link>
             <Nav.Link href="https://quizzacious.github.io/">
-              <strong>GO TO DOCUMENTATION SITE</strong>
+              GO TO DOCUMENTATION SITE
             </Nav.Link>
             <Nav.Link href="#">
-              <strong>WHO WE ARE</strong>
+              WHO WE ARE
+            </Nav.Link>
+            <Nav.Link href="#">
+              CONTACT US!
             </Nav.Link>
           </Nav>
         </Container>
