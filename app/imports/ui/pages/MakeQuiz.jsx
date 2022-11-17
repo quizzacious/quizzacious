@@ -67,7 +67,7 @@ const MakeQuiz = () => {
                 <TextField name="description" />
                 <TextField name="createdAt" />
                 <TextField name="owner" />
-                <SubmitField value="Submit" />
+                <SubmitField value="Next" />
                 <ErrorsField />
               </Card.Body>
             </Card>
