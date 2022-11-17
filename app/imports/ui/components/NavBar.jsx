@@ -16,7 +16,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand as={NavLink} to="/home" key="home">
           <Stack direction="horizontal">
-            <Image src="https://media.discordapp.net/attachments/1039357989527760963/1041216966242873394/image.png?width=491&height=585" height="100px" />
+            <Image src="/images/logo.png" height="100px" />
             <h1>UIZZACIOUS</h1>
           </Stack>
         </Navbar.Brand>
