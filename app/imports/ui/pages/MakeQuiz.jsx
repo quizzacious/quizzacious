@@ -37,10 +37,10 @@ const MakeQuiz = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { title, subject, description, createdAt, questions } = data;
+    const { title, subject, description, createdAt } = data;
     const owner = Meteor.user().username;
     Quizzes.collection.insert(
-      { title, subject, description, createdAt, owner, questions },
+      { title, subject, description, createdAt, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -67,7 +67,7 @@ const MakeQuiz = () => {
                 <TextField name="description" />
                 <TextField name="createdAt" />
                 <TextField name="owner" />
-                <SubmitField value="Submit" />
+                <SubmitField value="Next" />
                 <ErrorsField />
               </Card.Body>
             </Card>
