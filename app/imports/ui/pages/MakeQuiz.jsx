@@ -1,26 +1,33 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Quiz } from '../../api/quiz/Quiz';
+import { Quizzes } from '../../api/quiz/Quizzes';
 
 // Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  name: String,
+const questionSchema = new SimpleSchema({
   question: String,
   answer1: String,
   answer2: String,
   answer3: String,
   answer4: String,
-  owner: String,
   answerFinal: {
     type: String,
     allowedValues: ['1', '2', '3', '4'],
     defaultValue: '1',
   },
+});
+
+const formSchema = new SimpleSchema({
+  title: String,
+  subject: String,
+  description: String,
+  createdAt: Date,
+  owner: String,
+  questions: [questionSchema],
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -30,10 +37,10 @@ const MakeQuiz = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, question, answer1, answer2, answer3, answer4, answerFinal } = data;
+    const { title, subject, description, createdAt, questions } = data;
     const owner = Meteor.user().username;
-    Quiz.collection.insert(
-      { name, question, answer1, answer2, answer3, answer4, owner, answerFinal },
+    Quizzes.collection.insert(
+      { title, subject, description, createdAt, owner, questions },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -55,14 +62,11 @@ const MakeQuiz = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <TextField name="question" />
-                <TextField name="answer1" />
-                <TextField name="answer2" />
-                <TextField name="answer3" />
-                <TextField name="answer4" />
+                <TextField name="title" />
+                <TextField name="subject" />
+                <TextField name="description" />
+                <TextField name="createdAt" />
                 <TextField name="owner" />
-                <SelectField name="answerFinal" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
