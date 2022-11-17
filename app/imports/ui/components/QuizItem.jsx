@@ -11,7 +11,7 @@ const QuizItem = ({ quiz }) => (
     </Card.Header>
     <Card.Body>
       <Card.Text>
-        <p>Sunject:</p>
+        <p>Subject:</p>
         <p>Rating:</p>
         <p>Description:</p>
         <Link to={`/quizPage/${quiz._id}`}>Start This Quiz</Link>

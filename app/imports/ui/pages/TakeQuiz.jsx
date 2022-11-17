@@ -6,17 +6,17 @@ import QuizItem from '../components/QuizItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
 
-/* Renders a table containing all of the Quiz documents. Use <QuizItem> to render each row. */
+/* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const TakeQuiz = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, stuffs: quizzes } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Quiz documents.
+    // Get access to Quizzes documents.
     const subscription = Meteor.subscribe(Quizzes.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Quiz documents
+    // Get the Quizzes documents
     const quizItems = Quizzes.collection.find({}).fetch();
     return {
       stuffs: quizItems,
