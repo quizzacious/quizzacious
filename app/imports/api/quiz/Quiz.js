@@ -5,7 +5,7 @@ import { Tracker } from 'meteor/tracker';
 /**
  * The QuizCollection. It encapsulates state and variable values for quiz.
  */
-class QuizCollection {
+class OLDQuizCollection {
   constructor() {
     // The name of this collection.
     this.name = 'QuizCollection';
@@ -36,6 +36,6 @@ class QuizCollection {
 
 /**
  * The singleton instance of the QuizCollection.
- * @type {QuizCollection}
+ * @type {OLDQuizCollection}
  */
-export const Quiz = new QuizCollection();
+export const Quiz = new OLDQuizCollection();
