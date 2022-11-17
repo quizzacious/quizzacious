@@ -33,7 +33,7 @@ const MakeQuiz = () => {
     const { name, question, answer1, answer2, answer3, answer4, answerFinal } = data;
     const owner = Meteor.user().username;
     Quiz.collection.insert(
-      { name, question, answer1, answer2, answer3, answer4, answerFinal, owner },
+      { name, question, answer1, answer2, answer3, answer4, owner, answerFinal },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -61,6 +61,7 @@ const MakeQuiz = () => {
                 <TextField name="answer2" />
                 <TextField name="answer3" />
                 <TextField name="answer4" />
+                <TextField name="owner" />
                 <SelectField name="answerFinal" />
                 <SubmitField value="Submit" />
                 <ErrorsField />

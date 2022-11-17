@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Quiz } from '../../api/quiz/Quiz';
 import QuizItem from '../components/QuizItem';
@@ -28,21 +28,13 @@ const TakeQuiz = () => {
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col md={7}>
+        <Col>
           <Col className="text-center">
             <h2>Take Quiz</h2>
           </Col>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Question</th>
-              </tr>
-            </thead>
-            <tbody>
-              {quizzes.map((quiz) => <QuizItem key={quiz._id} quiz={quiz} />)}
-            </tbody>
-          </Table>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {quizzes.map((quiz, index) => (<Col key={index}><QuizItem quiz={quiz} /></Col>))}
+          </Row>
         </Col>
       </Row>
     </Container>
