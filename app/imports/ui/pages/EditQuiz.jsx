@@ -6,10 +6,10 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
-import { Quiz } from '../../api/quiz/Quiz';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Quizzes } from '../../api/quiz/Quizzes';
 
-const bridge = new SimpleSchema2Bridge(Quiz.schema);
+const bridge = new SimpleSchema2Bridge(Quizzes.schema);
 
 /* Renders the EditQuiz page for editing a single document. */
 const EditQuiz = () => {
@@ -18,12 +18,12 @@ const EditQuiz = () => {
   // console.log('EditQuiz', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Quiz documents.
-    const subscription = Meteor.subscribe(Quiz.userPublicationName);
+    // Get access to Quizzes documents.
+    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Quiz.collection.findOne(_id);
+    const document = Quizzes.collection.findOne(_id);
     return {
       doc: document,
       ready: rdy,
@@ -33,7 +33,7 @@ const EditQuiz = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, question, answer1, answer2, answer3, answerFinal } = data;
-    Quiz.collection.update(_id, { $set: { name, question, answer1, answer2, answer3, answerFinal } }, (error) => (error ?
+    Quizzes.collection.update(_id, { $set: { name, question, answer1, answer2, answer3, answerFinal } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

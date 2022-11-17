@@ -1,11 +1,11 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Quiz } from '../../api/quiz/Quiz';
+import { Quizzes } from '../../api/quiz/Quizzes';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -32,7 +32,7 @@ const MakeQuiz = () => {
   const submit = (data, formRef) => {
     const { name, question, answer1, answer2, answer3, answer4, answerFinal } = data;
     const owner = Meteor.user().username;
-    Quiz.collection.insert(
+    Quizzes.collection.insert(
       { name, question, answer1, answer2, answer3, answer4, answerFinal, owner },
       (error) => {
         if (error) {

@@ -2,21 +2,21 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row, Image, Stack, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Quiz } from '../../api/quiz/Quiz';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Quizzes } from '../../api/quiz/Quizzes';
 
-/* Renders a table containing all of the Quiz documents. Use <QuizItem> to render each row. */
+/* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const Profile = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Quiz documents.
-    const subscription = Meteor.subscribe(Quiz.userPublicationName);
+    // Get access to Quizzes documents.
+    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Quiz documents
-    const quizItems = Quiz.collection.find({}).fetch();
+    // Get the Quizzes documents
+    const quizItems = Quizzes.collection.find({}).fetch();
     return {
       stuffs: quizItems,
       ready: rdy,
