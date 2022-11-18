@@ -18,7 +18,7 @@
 }
 
 .font2 {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 /* Change bootstrap variable values.
@@ -26,7 +26,6 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  color: whitesmoke;
   background: fixed center url("images/gwy.gif");
   background-size: cover;
 }

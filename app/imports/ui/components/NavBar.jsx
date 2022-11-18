@@ -16,13 +16,13 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand as={NavLink} to="/home" key="home">
           <Stack direction="horizontal">
-            <Image src="/images/logo.png" height="100px" />
+            <Image src="/images/logo.png" height="80px" />
             <h1>UIZZACIOUS</h1>
           </Stack>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
+          <Nav className="me-auto justify-content-start font2">
             {currentUser ? ([
               <Nav.Link id="make-quiz-nav" as={NavLink} to="/make" key="make">Make-A-Quiz</Nav.Link>,
               <Nav.Link id="take-quiz--nav" as={NavLink} to="/take" key="take">Take Quiz</Nav.Link>,
@@ -32,7 +32,7 @@ const NavBar = () => {
               <Nav.Link id="admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
             ) : ''}
           </Nav>
-          <Nav className="me-auto justify-content-end">
+          <Nav className="justify-content-end font2">
             {currentUser ? ([
               <NavDropdown id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
