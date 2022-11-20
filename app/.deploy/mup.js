@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '164.92.109.35',
+      host: 'quizzacious.xyz',
       username: 'root',
       password: 'Qu1ZZac1ous'
     }
@@ -14,12 +14,19 @@ module.exports = {
     servers: { one: {}, },
     buildOptions: { serverOnly: true },
     env: {
-      ROOT_URL: 'http://164.92.109.35',
+      ROOT_URL: 'https://quizzacious.xyz/',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
     docker: { image: 'zodern/meteor:latest' },
     enableUploadProgressBar: true
+  },
+  proxy: {
+    domains: 'quizzacious.xyz',
+    ssl: {
+      letsEncryptEmail: 'johnson@hawaii.edu',
+      forceSSL: true
+    }
   },
   mongo: { version: '5.0.5', servers: { one: {} }
   },
