@@ -1,8 +1,8 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Quizzes } from '../../api/quiz/Quizzes';
@@ -25,21 +25,22 @@ const formSchema = new SimpleSchema({
   title: String,
   subject: String,
   description: String,
+  createdAt: Date,
+  owner: String,
+  questions: [questionSchema],
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the MakeQuiz page for making a quiz. */
-const MakeQuiz = () => {
+const MakeQuestions = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { title, subject, description } = data;
+    const { question, answer1, answer2, answer3, answer4, answerFinal } = data;
     const owner = Meteor.user().username;
-    const questions = [];
-    const createdAt = new Date();
     Quizzes.collection.insert(
-      { title, subject, description, createdAt, owner, questions },
+      { question, answer1, answer2, answer3, answer4, answerFinal, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -61,9 +62,13 @@ const MakeQuiz = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="title" />
-                <TextField name="subject" />
-                <TextField name="description" />
+                <TextField name="question" />
+                <TextField name="answer1" />
+                <TextField name="answer2" />
+                <TextField name="answer3" />
+                <TextField name="answer4" />
+                <TextField name="answerFinal" />
+                <TextField name="owner" />
                 <SubmitField value="Next" />
                 <ErrorsField />
               </Card.Body>
@@ -75,4 +80,4 @@ const MakeQuiz = () => {
   );
 };
 
-export default MakeQuiz;
+export default MakeQuestions;
