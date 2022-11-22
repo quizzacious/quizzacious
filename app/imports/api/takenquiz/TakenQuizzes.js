@@ -3,28 +3,21 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The RatingsCollection. It encapsulates state and variable values for quiz.
+ * The TakenQuizzesCollection. It encapsulates state and variable values for a taken quiz.
  */
-class RatingsCollection {
+class TakenQuizzesCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'RatingsCollection';
+    this.name = 'TakenQuizzesCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      reviewer: String,
+      taker: String,
       quiz: String,
-      rating: {
-        type: SimpleSchema.Integer,
-        min: 1,
-        max: 5,
-      },
+      score: Number,
       createdAt: Date,
-      feedback: {
-        type: String,
-        optional: true,
-      },
+      inputtedAnswers: [String],
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -35,7 +28,7 @@ class RatingsCollection {
 }
 
 /**
- * The singleton instance of the RatingsCollection.
- * @type {RatingsCollection}
+ * The singleton instance of the TakenQuizzesCollection.
+ * @type {TakenQuizzesCollection}
  */
-export const Ratings = new RatingsCollection();
+export const TakenQuizzes = new TakenQuizzesCollection();
