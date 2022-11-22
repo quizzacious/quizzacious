@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { Link } from 'react-router-dom';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
@@ -8,18 +9,6 @@ import SimpleSchema from 'simpl-schema';
 import { Quizzes } from '../../api/quiz/Quizzes';
 
 // Create a schema to specify the structure of the data to appear in the form.
-const questionSchema = new SimpleSchema({
-  question: String,
-  answer1: String,
-  answer2: String,
-  answer3: String,
-  answer4: String,
-  answerFinal: {
-    type: String,
-    allowedValues: ['1', '2', '3', '4'],
-    defaultValue: '1',
-  },
-});
 
 const formSchema = new SimpleSchema({
   title: String,
@@ -65,6 +54,7 @@ const MakeQuiz = () => {
                 <TextField name="subject" />
                 <TextField name="description" />
                 <SubmitField value="Next" />
+                <Link href="/home">Questions</Link>
                 <ErrorsField />
               </Card.Body>
             </Card>

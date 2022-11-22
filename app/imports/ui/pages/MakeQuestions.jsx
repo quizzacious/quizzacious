@@ -21,16 +21,7 @@ const questionSchema = new SimpleSchema({
   },
 });
 
-const formSchema = new SimpleSchema({
-  title: String,
-  subject: String,
-  description: String,
-  createdAt: Date,
-  owner: String,
-  questions: [questionSchema],
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
+const bridge = new SimpleSchema2Bridge(questionSchema);
 
 /* Renders the MakeQuiz page for making a quiz. */
 const MakeQuestions = () => {
