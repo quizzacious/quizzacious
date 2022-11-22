@@ -1,6 +1,7 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
@@ -24,9 +25,6 @@ const formSchema = new SimpleSchema({
   title: String,
   subject: String,
   description: String,
-  createdAt: Date,
-  owner: String,
-  questions: [questionSchema],
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -36,9 +34,12 @@ const MakeQuiz = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { title, subject, description, createdAt, questions } = data;
+    const { title, subject, description } = data;
+    const owner = Meteor.user().username;
+    const questions = [];
+    const createdAt = new Date();
     Quizzes.collection.insert(
-      { title, subject, description, createdAt, questions },
+      { title, subject, description, createdAt, owner, questions },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -63,10 +64,8 @@ const MakeQuiz = () => {
                 <TextField name="title" />
                 <TextField name="subject" />
                 <TextField name="description" />
-                <TextField name="createdAt" />
                 <SubmitField value="Next" />
                 <ErrorsField />
-                <HiddenField name="owner" />
               </Card.Body>
             </Card>
           </AutoForm>
