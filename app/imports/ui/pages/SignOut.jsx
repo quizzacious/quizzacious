@@ -8,7 +8,7 @@ const SignOut = () => {
   return (
     <Container className="text-center py-3">
       <Col id="signout-page"><h2>You are signed out.</h2></Col>
-      <Button href="/intro">Go back to Home Page!</Button>
+      <Button href="/home">Go back to Home Page!</Button>
     </Container>
   );
 };

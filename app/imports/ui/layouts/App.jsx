@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
 import ProfileAdmin from '../pages/ProfileAdmin';
@@ -15,7 +14,6 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import TakeQuiz from '../pages/TakeQuiz';
-import IntroPage from '../pages/IntroPage';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
 import MakeQuestions from '../pages/MakeQuestions';
@@ -26,13 +24,11 @@ const App = () => (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<IntroPage />} />
-        <Route path="/intro" element={<IntroPage />} />
+        <Route exact path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/home" element={<Landing />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-        <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
         <Route path="/quizPage/:_id/:num" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
@@ -43,7 +39,6 @@ const App = () => (
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </div>
   </Router>
 );
