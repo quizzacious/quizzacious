@@ -12,17 +12,16 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="font2">
       <Container>
         <Navbar.Brand as={NavLink} to="/home" key="home">
           <Stack direction="horizontal">
-            <Image src="/images/logo.png" height="80px" />
-            <h1>UIZZACIOUS</h1>
+            <Image src="/images/logo.png" height="100px" />
           </Stack>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start font2">
+          <Nav className="me-auto justify-content-start">
             {currentUser ? ([
               <Nav.Link id="make-quiz-nav" as={NavLink} to="/make" key="make">Make-A-Quiz</Nav.Link>,
               <Nav.Link id="take-quiz--nav" as={NavLink} to="/take" key="take">Take Quiz</Nav.Link>,
@@ -32,14 +31,32 @@ const NavBar = () => {
               <Nav.Link id="admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
             ) : ''}
           </Nav>
-          <Nav className="justify-content-end font2">
-            {currentUser ? ([
+          <Nav className="justify-content-end">
+            {currentUser === '' ? ([
+              <Nav.Link>ABOUT US</Nav.Link>,
+            ]) : ''}
+          </Nav>
+          <Nav className="justify-content-end">
+            {currentUser === '' ? (
+              <NavDropdown id="login-dropdown" title="Login">
+                <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
+                  Sign
+                  in
+                </NavDropdown.Item>
+                <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
+                  Sign
+                  up
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
-                  Sign Out
+                  {' '}
+                  Sign
+                  out
                 </NavDropdown.Item>
-              </NavDropdown>,
-            ]) : ''}
+              </NavDropdown>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

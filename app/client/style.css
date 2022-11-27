@@ -3,22 +3,22 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 200;
+  --matr-navbar-bg: #F0533E;
+  --matr-navbar-bg-rgb: 240, 83, 62, 255;
   --matr-navbar-text-color: black;
-  --matr-navbar-highlight-text: Green;
-}
-
-.font {
-  font-family: Elephant, cursive;
+  --matr-navbar-highlight-text: green;
 }
 
 .font1 {
-  font-family: Sylfaen, cursive;
+  font-family:"Ink Free", cursive;
+  font-size: 50px;
+  font-weight: bolder;
 }
 
 .font2 {
+  font-family: "Copperplate Gothic Light", cursive;
   font-size: 20px;
+  font-weight: bold;
 }
 
 /* Change bootstrap variable values.
@@ -26,11 +26,9 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("images/gwy.gif");
+  background: fixed center url("https://img.freepik.com/free-vector/mountain-lake-sunset-landscape-realistic-tree-forest-mountain-silhouettes-evening-wood-panorama-illustration-wild-nature-background_1150-39419.jpg?w=1060&t=st=1669514915~exp=1669515515~hmac=cfd6bbb5a0bcce32784138f9273289ae3deba40fb779c32129efdfd83a0477f1");
   background-size: cover;
 }
-
-
 
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {

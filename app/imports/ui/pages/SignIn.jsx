@@ -43,12 +43,11 @@ const SignIn = () => {
   return (
     <Container id="signin-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center py-5">
-            <h2>Welcome to Quizzacious</h2>
-          </Col>
+        <Col xs={7}>
+          <Col className="text-center py-5" />
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
+              <Card.Header className="text-center"><h2>Welcome to Quizzacious</h2></Card.Header>
               <Card.Body>
                 <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
                 <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
