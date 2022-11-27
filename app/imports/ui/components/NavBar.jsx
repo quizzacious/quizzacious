@@ -32,11 +32,6 @@ const NavBar = () => {
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">
-            {currentUser === '' ? ([
-              <Nav.Link>ABOUT US</Nav.Link>,
-            ]) : ''}
-          </Nav>
-          <Nav className="justify-content-end">
             {currentUser === '' ? (
               <NavDropdown id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
