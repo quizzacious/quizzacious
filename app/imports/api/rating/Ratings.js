@@ -36,6 +36,6 @@ class RatingsCollection {
 
 /**
  * The singleton instance of the RatingsCollection.
- * @type {QuizCollection}
+ * @type {RatingsCollection}
  */
 export const Ratings = new RatingsCollection();

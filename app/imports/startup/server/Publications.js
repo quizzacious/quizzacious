@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Roles } from 'meteor/alanning:roles';
 import { Quizzes } from '../../api/quiz/Quizzes';
 import { Ratings } from '../../api/rating/Ratings';
+import { TakenQuizzes } from '../../api/takenquiz/TakenQuizzes';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -32,10 +32,11 @@ Meteor.publish(Quizzes.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Ratings.userPublicationName, function () {
+/** Define a publication to publish a user's taken quizzes. */
+Meteor.publish(TakenQuizzes.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Ratings.collection.find({ owner: username });
+    return TakenQuizzes.collection.find({ taker: username });
   }
   return this.ready();
 });
