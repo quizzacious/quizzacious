@@ -24,6 +24,13 @@ Meteor.publish(Quizzes.userPublicationName, function () {
   }
   return this.ready();
 });
+// Admin-level publication.
+Meteor.publish(Quizzes.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Quizzes.collection.find();
+  }
+  return this.ready();
+});
 
 Meteor.publish(Ratings.userPublicationName, function () {
   if (this.userId) {

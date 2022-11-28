@@ -17,7 +17,7 @@ const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/home" key="home">
           <Stack direction="horizontal">
             <Image src="/images/logo.png" height="80px" />
-            <h1>UIZZACIOUS</h1>
+            <h1>QUIZZACIOUS</h1>
           </Stack>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
