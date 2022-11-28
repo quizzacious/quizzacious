@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Link } from 'react-router-dom';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
@@ -54,7 +53,7 @@ const MakeQuiz = () => {
                 <TextField name="subject" />
                 <TextField name="description" />
                 <SubmitField value="Next" />
-                <Link href="/home">Questions</Link>
+                <Card.Link href="/makeQuestions">Questions</Card.Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
