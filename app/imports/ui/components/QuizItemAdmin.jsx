@@ -12,6 +12,9 @@ const QuizItemAdmin = ({ quiz }) => (
     <td>
       <Link to={`/edit/${quiz._id}`}>Edit</Link>
     </td>
+    <td>
+      <Link to={`/delete/${quiz._id}`}>Delete</Link>
+    </td>
   </tr>
 );
 

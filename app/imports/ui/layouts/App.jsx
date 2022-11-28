@@ -18,6 +18,7 @@ import TakeQuiz from '../pages/TakeQuiz';
 import IntroPage from '../pages/IntroPage';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
+import DeleteQuiz from '../pages/DeleteQuiz';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -38,6 +39,7 @@ const App = () => (
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
+        <Route path="/delete/:_id" element={<AdminProtectedRoute><DeleteQuiz /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

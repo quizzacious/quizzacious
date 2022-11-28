@@ -11,7 +11,7 @@ const ProfileAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { quizzes, ready } = useTracker(() => {
     // Get access to Quizzes documents.
-    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
+    const subscription = Meteor.subscribe(Quizzes.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Quizzes documents
@@ -21,6 +21,7 @@ const ProfileAdmin = () => {
       ready: rdy,
     };
   }, []);
+
   return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
