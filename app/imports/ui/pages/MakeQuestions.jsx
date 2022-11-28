@@ -1,14 +1,15 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Quizzes } from '../../api/quiz/Quizzes';
 
 // Create a schema to specify the structure of the data to appear in the form.
-const questionSchema = new SimpleSchema({
+
+const formSchema = new SimpleSchema({
   question: String,
   answer1: String,
   answer2: String,
@@ -21,7 +22,7 @@ const questionSchema = new SimpleSchema({
   },
 });
 
-const bridge = new SimpleSchema2Bridge(questionSchema);
+const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the MakeQuiz page for making a quiz. */
 const MakeQuestions = () => {
@@ -29,9 +30,8 @@ const MakeQuestions = () => {
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { question, answer1, answer2, answer3, answer4, answerFinal } = data;
-    const owner = Meteor.user().username;
     Quizzes.collection.insert(
-      { question, answer1, answer2, answer3, answer4, answerFinal, owner },
+      { question, answer1, answer2, answer3, answer4, answerFinal },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -59,7 +59,6 @@ const MakeQuestions = () => {
                 <TextField name="answer3" />
                 <TextField name="answer4" />
                 <TextField name="answerFinal" />
-                <TextField name="owner" />
                 <SubmitField value="Next" />
                 <ErrorsField />
               </Card.Body>
