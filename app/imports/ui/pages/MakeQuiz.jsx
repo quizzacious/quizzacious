@@ -52,8 +52,8 @@ const MakeQuiz = () => {
                 <TextField name="title" />
                 <TextField name="subject" />
                 <TextField name="description" />
-                <SubmitField value="Next" />
-                <Card.Link href="/makeQuestions">Questions</Card.Link>
+                <SubmitField value="Save" />
+                <Card.Link href="/makeQuestions">Create Questions</Card.Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
