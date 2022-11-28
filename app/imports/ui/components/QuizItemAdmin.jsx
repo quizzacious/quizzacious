@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff (Admin) table. See pages/ListStuffAdmin.jsx. */
+/** Renders a single row in the Quiz Item (Admin) table. See pages/ProfileAdmin.jsx. */
 const QuizItemAdmin = ({ quiz }) => (
   <tr>
     <td>{quiz.name}</td>
@@ -11,6 +11,9 @@ const QuizItemAdmin = ({ quiz }) => (
     <td>{quiz.owner}</td>
     <td>
       <Link to={`/edit/${quiz._id}`}>Edit</Link>
+    </td>
+    <td>
+      <Link to={`/delete/${quiz._id}`}>Delete</Link>
     </td>
   </tr>
 );

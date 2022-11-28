@@ -3,22 +3,36 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 200;
+  --matr-navbar-bg: #F0533E;
+  --matr-navbar-bg-rgb: 240, 83, 62, 255;
   --matr-navbar-text-color: black;
-  --matr-navbar-highlight-text: Green;
+  --matr-navbar-highlight-text: green;
 }
 
-.font {
-  font-family: Elephant, cursive;
+#color {
+  font-family:"Ink Free", cursive;
+  font-size: 45px;
+  font-weight: bolder;
+  color: whitesmoke;
 }
 
-.font1 {
-  font-family: Sylfaen, cursive;
+#color {
+  font-family:"Ink Free", cursive;
+  font-size: 40px;
+  font-weight: bolder;
+  color: lightgoldenrodyellow;
 }
 
 .font2 {
-  font-size: 20px;
+  font-family: "Copperplate Gothic Light", cursive;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.font3 {
+  font-family: Papyrus, cursive;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* Change bootstrap variable values.
@@ -26,11 +40,12 @@
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("images/gwy.gif");
+  background-image: url("https://cdn.pixabay.com/photo/2018/07/09/04/07/art-3525343_960_720.png");
+  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
 }
-
-
 
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
