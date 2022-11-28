@@ -7,13 +7,13 @@ import { Card } from 'react-bootstrap';
 const QuizItem = ({ quiz }) => (
   <Card className="h-100">
     <Card.Header>
-      <Card.Title>{QuizItem.name}</Card.Title>
+      <Card.Title>{quiz.title}</Card.Title>
     </Card.Header>
     <Card.Body>
       <Card.Text>
-        <p>Subject:</p>
+        <p>Subject: {quiz.subject}</p>
         <p>Rating:</p>
-        <p>Description:</p>
+        <p>Description: {quiz.description}</p>
         <Link to={`/quizPage/${quiz._id}`}>Start This Quiz</Link>
       </Card.Text>
     </Card.Body>
@@ -23,6 +23,10 @@ const QuizItem = ({ quiz }) => (
 // Require a document to be passed to this component.
 QuizItem.propTypes = {
   quiz: PropTypes.shape({
+    title: String,
+    subject: String,
+    description: String,
+    createdAt: Date,
     name: String,
     question: String,
     answer1: String,
