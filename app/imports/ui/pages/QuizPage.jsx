@@ -1,5 +1,5 @@
 import React from 'react';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -23,7 +23,7 @@ const QuizPage = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready() && subscription2.ready();
     // Get the document
-    const quizItem = Quizzes.collection.findOne(_id).fetch();
+    const quizItem = Quizzes.collection.findOne(_id);
     const takenItem = TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id }).fetch();
     return {
       _quiz: quizItem,
@@ -41,16 +41,11 @@ const QuizPage = () => {
   }; */
 
   const takeId = () => {
-    const count = taken.count();
-    if (count === 1) {
-      return _.pluck(taken, _id)[0];
-    }
-    if (count > 1) {
-      swal('Error', 'Too many TakenQuiz items.', 'error');
-      return null;
+    if (taken[0]) {
+      return taken[0]._id;
     }
     TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date(), inputtedAnswers: [] });
-    return _.pluck(TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id }), _id)[0];
+    return TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id })[0]._id;
   };
 
   return ready ? (

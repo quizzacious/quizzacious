@@ -11,16 +11,10 @@ const QuizItem = ({ quiz }) => (
     </Card.Header>
     <Card.Body>
       <Card.Text>
-        Subject: {quiz.subject}
-      </Card.Text>
-      <Card.Text>
-        Rating:
-      </Card.Text>
-      <Card.Text>
-        Description: {quiz.description}
-      </Card.Text>
-      <Card.Text>
-        <Link to={`/quizPage/${quiz._id}`}>Start This Quiz</Link>
+        <p>Subject: {quiz.subject}</p>
+        <p>Rating:</p>
+        <p>Description: {quiz.description}</p>
+        <Link to={`/quizPage/${quiz._id}`}>Edit This Quiz</Link>
       </Card.Text>
     </Card.Body>
   </Card>
@@ -29,11 +23,22 @@ const QuizItem = ({ quiz }) => (
 // Require a document to be passed to this component.
 QuizItem.propTypes = {
   quiz: PropTypes.shape({
-    title: PropTypes.string,
-    subject: PropTypes.string,
-    description: PropTypes.string,
-    createdAt: PropTypes.instanceOf(Date),
-    owner: PropTypes.string,
+    title: String,
+    subject: String,
+    description: String,
+    createdAt: Date,
+    name: String,
+    question: String,
+    answer1: String,
+    answer2: String,
+    answer3: String,
+    answer4: String,
+    owner: String,
+    answerFinal: {
+      type: String,
+      allowedValues: ['1', '2', '3', '4'],
+      defaultValue: '1',
+    },
     _id: PropTypes.string,
   }).isRequired,
 };
