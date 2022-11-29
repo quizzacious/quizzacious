@@ -52,6 +52,10 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
+  async gotoMakeQuiz(testController) {
+    await testController.click('#make-quiz-nav');
+  }
 }
 
 export const navBar = new NavBar();
