@@ -2,9 +2,9 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import QuizItem from '../components/QuizItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
+import EditQuizItem from '../components/EditQuizItem';
 
 /* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const ListQuiz = () => {
@@ -31,7 +31,7 @@ const ListQuiz = () => {
             <h2>Your Quizzes</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {quizzes.map((quiz, index) => (<Col key={index}><QuizItem quiz={quiz} /></Col>))}
+            {quizzes.map((quiz, index) => (<Col key={index}><EditQuizItem quiz={quiz} /></Col>))}
           </Row>
         </Col>
       </Row>
