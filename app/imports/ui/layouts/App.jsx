@@ -19,6 +19,7 @@ import IntroPage from '../pages/IntroPage';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
 import MakeQuestions from '../pages/MakeQuestions';
+import TakingQuiz from '../pages/TakingQuiz';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -34,7 +35,8 @@ const App = () => (
         <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
-        <Route path="/quizPage/:_id/:take_id/:num" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
+        <Route path="/quizpage/:_id" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
+        <Route path="/taking/:_id/:take_id/:num" element={<ProtectedRoute><TakingQuiz /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
         <Route path="/makeQuestions/:_id/:num" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
