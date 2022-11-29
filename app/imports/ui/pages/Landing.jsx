@@ -1,45 +1,64 @@
 import React from 'react';
-import { Carousel, Container, Card } from 'react-bootstrap';
+import { Row, Col, Container, Image, Stack } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
-  <Container className="text-center align-items-center py-4">
-    <h4 className="py-2 text-white font2">Words to Motivate and Start your Day with a Smile!</h4>
-    <Carousel className="text-white">
-      <Carousel.Item>
-        <Card style={{ height: '18rem' }}>
-          <Card.Img src="https://media.tenor.com/f6Z_JUiELaMAAAAC/winter-wonderland-snow.gif" />
-          <Card.ImgOverlay>
-            <h1 className="py-2"><strong>Over the Wintry by Natsume Soseki</strong></h1>
-            <h1>Over the wintry</h1>
-            <h1>Forest, winds howl in rage</h1>
-            <h1>With no leaves to blow.</h1>
-          </Card.ImgOverlay>
-        </Card>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Card style={{ height: '18rem' }}>
-          <Card.Img src="https://media.tenor.com/M4uxQgC_uOEAAAAd/flower-bloom.gif" />
-          <Card.ImgOverlay>
-            <h1 className="py-2"><strong>A Poppy Blooms by Katsushika Hokusai</strong></h1>
-            <h1>I write, erase, rewrite</h1>
-            <h1>Erase again, and then</h1>
-            <h1>A poppy blooms.</h1>
-          </Card.ImgOverlay>
-        </Card>
-      </Carousel.Item>
-      <Carousel.Item>
-        <Card style={{ height: '18rem' }}>
-          <Card.Img src="https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/Oceanwaves.gif" alt="Card image" />
-          <Card.ImgOverlay>
-            <h1 className="py-2"><strong>Spring Ocean by Yosa Buson</strong></h1>
-            <h1>Spring ocean</h1>
-            <h1>Swaying gently</h1>
-            <h1>All day long.</h1>
-          </Card.ImgOverlay>
-        </Card>
-      </Carousel.Item>
-    </Carousel>
+  <Container id="color">
+    <Stack direction="horizontal" className="py-4">
+      <Row>
+        <Col className="text-center">
+          <Image src="https://media.tenor.com/J2RiuyvQgdEAAAAi/to-do-list-checklist.gif" width={225} />
+        </Col>
+      </Row>
+      <Row className="px-lg-5">
+        <Col>
+          <h1 className="text-center text-white">
+            <strong>What is Quizzacious?</strong>
+          </h1>
+          <p>
+            Quizzacious is an app that allows users to make their own quizzes and can be used as a study tool . . .
+          </p>
+        </Col>
+      </Row>
+    </Stack>
+    <Stack direction="horizontal" gap={4} className="py-lg-2 justify-content-md-evenly">
+      <Row>
+        <Col className="text-center">
+          <a href="https://github.com/orgs/quizzacious/projects/1/views/2">
+            <Image src="/images/m1.png" width={225} />
+          </a>
+          <p>MILESTONE 1</p>
+          <p className="font3">Our first week milestone and workflow!</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <a href="https://github.com/orgs/quizzacious/projects/2">
+            <Image src="/images/m2.png" width={225} />
+          </a>
+          <p>MILESTONE 2</p>
+          <p className="font3">Our second week milestone and workflow!</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <a href="https://github.com/orgs/quizzacious/people">
+            <Image src="/images/profile.png" width={225} />
+          </a>
+          <p>ABOUT US</p>
+          <p className="font3">Find us and learn about our organization!</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col className="text-center">
+          <a href="https://quizzacious.github.io/">
+            <Image src="/images/site.png" width={225} />
+          </a>
+          <p>SITE</p>
+          <p className="font3">Visit our official documentation site!</p>
+        </Col>
+      </Row>
+    </Stack>
   </Container>
 );
 

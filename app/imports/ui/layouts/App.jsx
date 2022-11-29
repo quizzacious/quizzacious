@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Profile from '../pages/Profile';
 import ProfileAdmin from '../pages/ProfileAdmin';
@@ -15,11 +14,13 @@ import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
 import TakeQuiz from '../pages/TakeQuiz';
-import IntroPage from '../pages/IntroPage';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
+import DeleteQuiz from '../pages/DeleteQuiz';
 import MakeQuestions from '../pages/MakeQuestions';
 import TakingQuiz from '../pages/TakingQuiz';
+import EditContacts from '../pages/EditContacts';
+import ProfileAdm from '../pages/ProfileAdm';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -27,25 +28,25 @@ const App = () => (
     <div className="d-flex flex-column min-vh-100">
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<IntroPage />} />
-        <Route path="/intro" element={<IntroPage />} />
+        <Route exact path="/" element={<Landing />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/home" element={<Landing />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
-        <Route path="/" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-        <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
         <Route path="/quizpage/:_id" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
         <Route path="/taking/:_id/:take_id/:num" element={<ProtectedRoute><TakingQuiz /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/edit/:_id" element={<ProtectedRoute><EditContacts /></ProtectedRoute>} />
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
-        <Route path="/makeQuestions/:_id/:num" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
+        <Route path="/makeQuestions" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
+        <Route path="/list" element={<AdminProtectedRoute><ProfileAdm /></AdminProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
+        <Route path="/delete/:_id" element={<AdminProtectedRoute><DeleteQuiz /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </div>
   </Router>
 );

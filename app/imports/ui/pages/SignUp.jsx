@@ -42,12 +42,11 @@ const SignUp = ({ location }) => {
   return (
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
-          </Col>
+        <Col xs={7}>
+          <Col className="py-5" />
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
+              <Card.Header className="text-center"><h2>Register your account</h2></Card.Header>
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
                 <TextField name="password" placeholder="Password" type="password" />
