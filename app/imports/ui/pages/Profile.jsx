@@ -1,24 +1,25 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row, Image, Stack, Nav } from 'react-bootstrap';
+import { Card, Col, Container, Row, Stack, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Quizzes } from '../../api/quiz/Quizzes';
+import Contact from '../components/Contact';
+import { Contacts } from '../../api/contact/Contacts';
 
 /* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const Profile = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready } = useTracker(() => {
+  const { ready, contacts } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Quizzes documents.
-    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
+    const subscription = Meteor.subscribe(Contacts.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Quizzes documents
-    const quizItems = Quizzes.collection.find({}).fetch();
+    const contactItems = Contacts.collection.find({}).fetch();
     return {
-      stuffs: quizItems,
+      contacts: contactItems,
       ready: rdy,
     };
   }, []);
@@ -26,13 +27,9 @@ const Profile = () => {
     <Container>
       <Row className="justify-content-center">
         <Col className="py-5">
-          <Card className="text-center h-100">
-            <Card.Body>
-              <Card.Header><Image roundedCircle src="https://github.com/philipmjohnson.png" width="200px" /></Card.Header>
-              <Card.Title className="py-3">Phillip Johnson</Card.Title>
-              <Card.Text className="py-1">I am a Professor of Information and Computer Sciences at the University of Hawaii, Director of the Collaborative Software Development Laboratory, and the CEO of OpenPowerQuality.com.</Card.Text>
-            </Card.Body>
-          </Card>
+          <Row>
+            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} /></Col>))}
+          </Row>
         </Col>
         <Col md={7} className="py-5">
           <Stack gap={4}>
