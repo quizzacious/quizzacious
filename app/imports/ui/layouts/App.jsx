@@ -16,7 +16,6 @@ import NotAuthorized from '../pages/NotAuthorized';
 import TakeQuiz from '../pages/TakeQuiz';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
-import DeleteQuiz from '../pages/DeleteQuiz';
 import MakeQuestions from '../pages/MakeQuestions';
 import TakingQuiz from '../pages/TakingQuiz';
 import EditContacts from '../pages/EditContacts';
@@ -43,7 +42,6 @@ const App = () => (
         <Route path="/list" element={<AdminProtectedRoute><ProfileAdm /></AdminProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
-        <Route path="/delete/:_id" element={<AdminProtectedRoute><DeleteQuiz /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
