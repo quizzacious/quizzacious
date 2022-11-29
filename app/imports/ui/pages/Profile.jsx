@@ -43,7 +43,7 @@ const Profile = () => {
                     <Nav.Link href="/take">Goes to Take a quiz</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/menu">Goes to Make a quiz</Nav.Link>
+                    <Nav.Link href="/menu">Make a quiz</Nav.Link>
                   </Nav.Item>
                 </Nav>
               </Card.Header>
