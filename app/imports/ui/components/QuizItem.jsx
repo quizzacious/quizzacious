@@ -27,18 +27,7 @@ QuizItem.propTypes = {
     subject: String,
     description: String,
     createdAt: Date,
-    name: String,
-    question: String,
-    answer1: String,
-    answer2: String,
-    answer3: String,
-    answer4: String,
     owner: String,
-    answerFinal: {
-      type: String,
-      allowedValues: ['1', '2', '3', '4'],
-      defaultValue: '1',
-    },
     _id: PropTypes.string,
   }).isRequired,
 };
