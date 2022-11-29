@@ -26,14 +26,6 @@ Meteor.publish(Contacts.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Quizzes.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Quizzes.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
 /** Define a publication to publish all quizzes. */
 Meteor.publish(Quizzes.userPublicationName, function () {
   if (this.userId) {
