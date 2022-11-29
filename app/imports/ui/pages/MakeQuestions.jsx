@@ -1,5 +1,4 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
