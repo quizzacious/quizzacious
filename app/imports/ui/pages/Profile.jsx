@@ -37,13 +37,16 @@ const Profile = () => {
               <Card.Header>
                 <Nav fill variant="tabs" defaultActiveKey="/home">
                   <Nav.Item>
-                    <Nav.Link href="/home">Go back to Landing Page</Nav.Link>
+                    <Nav.Link href="/home">Home Page</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/take">Goes to Take a quiz</Nav.Link>
+                    <Nav.Link href="/take">Take a Quiz</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/menu">Make a quiz</Nav.Link>
+                    <Nav.Link href="/make">Make a Quiz</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="/listQuiz">Your Quizzes</Nav.Link>
                   </Nav.Item>
                 </Nav>
               </Card.Header>
