@@ -41,11 +41,11 @@ const QuizPage = () => {
   }; */
 
   const takeId = () => {
-    if (taken) {
-      return _.pluck(taken, _id)[0];
+    if (taken[0]) {
+      return taken[0]._id;
     }
     TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date(), inputtedAnswers: [] });
-    return _.pluck(TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id }), _id)[0];
+    return TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id })[0]._id;
   };
 
   return ready ? (
