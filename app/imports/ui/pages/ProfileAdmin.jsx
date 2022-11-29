@@ -30,7 +30,7 @@ const ProfileAdmin = () => {
           <Table striped bordered hover>
             <th>Quizzes</th>
             <tbody>
-              {quizzes.map((quiz) => <QuizItemAdmin key={quiz._id} quiz={quiz} />)}
+              {quizzes.map((quiz) => <QuizItemAdmin key={quiz._id} quiz={quiz} collection={quiz.collection} />)}
             </tbody>
           </Table>
         </Col>
