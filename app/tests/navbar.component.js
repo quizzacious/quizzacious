@@ -60,6 +60,10 @@ class NavBar {
   async gotoTakeQuiz(testController) {
     await testController.click('#take-quiz--nav');
   }
+
+  async gotoProfile(testController) {
+    await testController.click('#profile-nav');
+  }
 }
 
 export const navBar = new NavBar();
