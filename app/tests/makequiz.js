@@ -20,6 +20,7 @@ class MakeQuiz {
     await testController.typeText('#make-quiz-subject', subject);
     await testController.typeText('#make-quiz-description', description);
     await testController.click('#make-quiz-submit input.btn.btn-primary');
+    await testController.click('button.swal-button--confirm');
   }
 }
 

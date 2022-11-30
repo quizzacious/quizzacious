@@ -32,6 +32,7 @@ test.only('Test the makequiz', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoMakeQuiz(testController);
   await makequiz.isDisplayed(testController);
+  await makequiz.makequizform(testController);
   await navBar.gotoTakeQuiz(testController);
   await takequiz.isDisplayed(testController);
   await navBar.logout(testController);
