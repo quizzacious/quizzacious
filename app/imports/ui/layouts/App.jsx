@@ -16,7 +16,6 @@ import NotAuthorized from '../pages/NotAuthorized';
 import TakeQuiz from '../pages/TakeQuiz';
 import MakeQuiz from '../pages/MakeQuiz';
 import QuizPage from '../pages/QuizPage';
-import DeleteQuiz from '../pages/DeleteQuiz';
 import MakeQuestions from '../pages/MakeQuestions';
 import EditContacts from '../pages/EditContacts';
 import ProfileAdm from '../pages/ProfileAdm';
