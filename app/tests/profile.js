@@ -11,6 +11,10 @@ class Profile {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
+  async profileedit(testController) {
+    await testController.click('#contact-edit');
+  }
+
 }
 
 export const profile = new Profile();

@@ -6,6 +6,7 @@ import { makequiz } from './makequiz';
 import { takequiz } from './takequiz';
 import { profile } from './profile';
 import { makequestions } from './makequestions';
+import { editprofile } from './editcontact';
 
 /* global fixture:false, test:false */
 
@@ -62,10 +63,14 @@ test('Test the takequiz', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test the Profile', async (testController) => {
+test.only('Test the Profile', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoProfile(testController);
+  await profile.isDisplayed(testController);
+  await profile.profileedit(testController);
+  await editprofile.editprofileform(testController);
   await navBar.gotoProfile(testController);
   await profile.isDisplayed(testController);
   await navBar.logout(testController);
