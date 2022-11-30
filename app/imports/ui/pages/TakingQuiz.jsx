@@ -43,7 +43,7 @@ const QuizPage = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container id="takingquiz" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Quiz</h2></Col>

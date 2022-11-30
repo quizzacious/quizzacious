@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class Profile {
+class QuizPage {
   constructor() {
-    this.pageId = '#profile-nav';
+    this.pageId = '#quizpage';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -11,10 +11,11 @@ class Profile {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  async profileedit(testController) {
-    await testController.click('#contact-edit');
+  async startquiz(testController) {
+    await this.isDisplayed(testController);
+    await testController.click('#begin');
   }
 
 }
 
-export const profile = new Profile();
+export const quizpage = new QuizPage();

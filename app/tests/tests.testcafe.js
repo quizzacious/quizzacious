@@ -5,6 +5,10 @@ import { navBar } from './navbar.component';
 import { makequiz } from './makequiz';
 import { takequiz } from './takequiz';
 import { profile } from './profile';
+import { quizpage } from './quizpage';
+import { takingquiz } from './takingquiz';
+import { makequestions } from './makequestions';
+import { editprofile } from './editcontact';
 
 /* global fixture:false, test:false */
 
@@ -32,6 +36,21 @@ test('Test the makequiz', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoMakeQuiz(testController);
   await makequiz.isDisplayed(testController);
+  await makequiz.makequizform(testController);
+  await navBar.gotoTakeQuiz(testController);
+  await takequiz.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test('Test the makequestions', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoMakeQuiz(testController);
+  await makequiz.isDisplayed(testController);
+  await makequiz.makequizform(testController);
+  await makequestions.makequestionsform(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
@@ -42,14 +61,22 @@ test('Test the takequiz', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoTakeQuiz(testController);
   await takequiz.isDisplayed(testController);
+  await takequiz.selectquiz(testController);
+  await quizpage.isDisplayed(testController);
+  await quizpage.startquiz(testController);
+  await takingquiz.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test the Profile', async (testController) => {
+test('Test the Profile', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoProfile(testController);
+  await profile.isDisplayed(testController);
+  await profile.profileedit(testController);
+  await editprofile.editprofileform(testController);
   await navBar.gotoProfile(testController);
   await profile.isDisplayed(testController);
   await navBar.logout(testController);

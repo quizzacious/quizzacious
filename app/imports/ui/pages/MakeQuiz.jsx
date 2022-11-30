@@ -49,11 +49,11 @@ const MakeQuiz = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="title" />
-                <TextField name="subject" />
-                <TextField name="description" />
-                <SubmitField value="Save" />
-                <Card.Link href="/makeQuestions">Create Questions</Card.Link>
+                <TextField id="make-quiz-title" name="title" />
+                <TextField id="make-quiz-subject" name="subject" />
+                <TextField id="make-quiz-description" name="description" />
+                <SubmitField id="make-quiz-submit" value="Save" />
+                <Card.Link id="make-quez" href="/makeQuestions">Create Questions</Card.Link>
                 <ErrorsField />
               </Card.Body>
             </Card>

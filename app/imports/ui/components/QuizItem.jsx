@@ -20,7 +20,7 @@ const QuizItem = ({ quiz }) => (
         Description: {quiz.description}
       </Card.Text>
       <Card.Text>
-        <Link to={`/quizPage/${quiz._id}`}>Start This Quiz</Link>
+        <Link key="start" to={`/quizPage/${quiz._id}`}>Start This Quiz</Link>
       </Card.Text>
     </Card.Body>
   </Card>
