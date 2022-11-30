@@ -3,7 +3,6 @@ import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { _ } from 'meteor/underscore';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -24,7 +23,7 @@ const QuizPage = () => {
     const rdy = subscription.ready() && subscription2.ready();
     // Get the document
     const quizItem = Quizzes.collection.findOne(_id);
-    const takenItem = TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id }).fetch();
+    const takenItem = TakenQuizzes.collection.find({ quiz: _id }).fetch();
     return {
       _quiz: quizItem,
       taken: takenItem,
@@ -32,20 +31,12 @@ const QuizPage = () => {
     };
   }, [_id]);
   // console.log('QuizPage', doc, ready);
-  // On successful submit, insert the data.
-  /* const submit = (data) => {
-    const { answerFinal } = data;
-    TakenQuizzes.collection.update(take_id, { $set: { 'inputtedAnswers.$[num]': answerFinal } }, { arrayFilters: [{ num: num }] }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
-  }; */
 
   const takeId = () => {
     if (taken[0]) {
       return taken[0]._id;
     }
-    TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date(), inputtedAnswers: [] });
-    return TakenQuizzes.collection.find({ taker: Meteor.user().username, quiz: _id })[0]._id;
+    return TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date(), inputtedAnswers: [] })[0]._id;
   };
 
   return ready ? (
@@ -59,9 +50,15 @@ const QuizPage = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>
-                <p>Subject: {_quiz.subject}</p>
-                <p>Rating:</p>
-                <p>Description: {_quiz.description}</p>
+                Subject: {_quiz.subject}
+              </Card.Text>
+              <Card.Text>
+                Rating:
+              </Card.Text>
+              <Card.Text>
+                Description: {_quiz.description}
+              </Card.Text>
+              <Card.Text>
                 <Link to={`/taking/${_id}/${takeId()}/1`}>Begin</Link>
               </Card.Text>
             </Card.Body>
