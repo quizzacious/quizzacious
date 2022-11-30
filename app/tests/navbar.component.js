@@ -57,6 +57,10 @@ class NavBar {
     await testController.click('#make-quiz-nav');
   }
 
+  async gotoMakeQuestions(testController) {
+    await testController.click('#makequestions');
+  }
+
   async gotoTakeQuiz(testController) {
     await testController.click('#take-quiz--nav');
   }

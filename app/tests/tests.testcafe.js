@@ -7,6 +7,7 @@ import { takequiz } from './takequiz';
 import { profile } from './profile';
 import { quizpage } from './quizpage';
 import { takingquiz } from './takingquiz';
+import { makequestions } from './makequestions';
 
 /* global fixture:false, test:false */
 
@@ -37,6 +38,18 @@ test('Test the makequiz', async (testController) => {
   await makequiz.makequizform(testController);
   await navBar.gotoTakeQuiz(testController);
   await takequiz.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test('Test the makequestions', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoMakeQuiz(testController);
+  await makequiz.isDisplayed(testController);
+  await makequiz.makequizform(testController);
+  await makequestions.makequestionsform(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
