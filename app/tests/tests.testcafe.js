@@ -26,12 +26,14 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test the makequiz', async (testController) => {
+test.only('Test the makequiz', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoMakeQuiz(testController);
   await makequiz.isDisplayed(testController);
+  await navBar.gotoTakeQuiz(testController);
+  await takequiz.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
@@ -46,7 +48,7 @@ test('Test the takequiz', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test the Profile', async (testController) => {
+test('Test the Profile', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
