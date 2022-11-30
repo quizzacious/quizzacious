@@ -54,18 +54,26 @@ class NavBar {
   }
 
   async gotoMakeQuiz(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
     await testController.click('#make-quiz-nav');
   }
 
-  async gotoMakeQuestions(testController) {
-    await testController.click('#makequestions');
-  }
-
   async gotoTakeQuiz(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
     await testController.click('#take-quiz--nav');
   }
 
   async gotoProfile(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
     await testController.click('#profile-nav');
   }
 }

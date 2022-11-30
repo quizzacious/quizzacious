@@ -5,6 +5,8 @@ import { navBar } from './navbar.component';
 import { makequiz } from './makequiz';
 import { takequiz } from './takequiz';
 import { profile } from './profile';
+import { quizpage } from './quizpage';
+import { takingquiz } from './takingquiz';
 import { makequestions } from './makequestions';
 import { editprofile } from './editcontact';
 
@@ -59,6 +61,10 @@ test('Test the takequiz', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.gotoTakeQuiz(testController);
   await takequiz.isDisplayed(testController);
+  await takequiz.selectquiz(testController);
+  await quizpage.isDisplayed(testController);
+  await quizpage.startquiz(testController);
+  await takingquiz.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });

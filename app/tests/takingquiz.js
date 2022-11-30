@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class TakeQuiz {
+class TakingQuiz {
   constructor() {
-    this.pageId = '#takequiz';
+    this.pageId = '#takingquiz';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -10,11 +10,6 @@ class TakeQuiz {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
-
-  async selectquiz(testController) {
-    await this.isDisplayed(testController);
-    await testController.click(Selector('a').withText('Start This Quiz'));
-  }
 }
 
-export const takequiz = new TakeQuiz();
+export const takingquiz = new TakingQuiz();

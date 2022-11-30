@@ -48,7 +48,7 @@ const QuizPage = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container id="quizpage" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Quiz</h2></Col>
@@ -61,7 +61,7 @@ const QuizPage = () => {
                 <p>Subject: {_quiz.subject}</p>
                 <p>Rating:</p>
                 <p>Description: {_quiz.description}</p>
-                <Link to={`/taking/${_id}/${takeId()}/1`}>Begin</Link>
+                <Link id="begin" to={`/taking/${_id}/${takeId()}/1`}>Begin</Link>
               </Card.Text>
             </Card.Body>
           </Card>
