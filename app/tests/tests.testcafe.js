@@ -5,6 +5,7 @@ import { navBar } from './navbar.component';
 import { makequiz } from './makequiz';
 import { takequiz } from './takequiz';
 import { profile } from './profile';
+import { makequestions } from './makequestions';
 
 /* global fixture:false, test:false */
 
@@ -26,7 +27,7 @@ test('Test that signin and signout work', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test the makequiz', async (testController) => {
+test('Test the makequiz', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
@@ -35,6 +36,18 @@ test.only('Test the makequiz', async (testController) => {
   await makequiz.makequizform(testController);
   await navBar.gotoTakeQuiz(testController);
   await takequiz.isDisplayed(testController);
+  await navBar.logout(testController);
+  await signoutPage.isDisplayed(testController);
+});
+
+test.only('Test the makequestions', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.isLoggedIn(testController, credentials.username);
+  await navBar.gotoMakeQuiz(testController);
+  await makequiz.isDisplayed(testController);
+  await makequiz.makequizform(testController);
+  await makequestions.makequestionsform(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });

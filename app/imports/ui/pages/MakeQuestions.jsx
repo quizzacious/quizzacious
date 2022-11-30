@@ -45,20 +45,20 @@ const MakeQuestions = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container className="py-3" id="makequestions">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Make Quiz</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="question" />
-                <TextField name="answer1" />
-                <TextField name="answer2" />
-                <TextField name="answer3" />
-                <TextField name="answer4" />
-                <TextField name="answerFinal" />
-                <SubmitField value="Next" />
+                <TextField id="make-questions" name="question" />
+                <TextField id="make-questions1" name="answer1" />
+                <TextField id="make-questions2" name="answer2" />
+                <TextField id="make-questions3" name="answer3" />
+                <TextField id="make-questions4" name="answer4" />
+                <TextField id="make-questions5" name="answerFinal" />
+                <SubmitField id="make-questions-submit" value="Next" />
                 <ErrorsField />
               </Card.Body>
             </Card>
