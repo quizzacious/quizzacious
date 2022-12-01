@@ -39,7 +39,7 @@ const EditContacts = () => {
   };
 
   return ready ? (
-    <Container className="py-3">
+    <Container id="edit-contact" className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2>Edit Contacts</h2></Col>
@@ -47,15 +47,15 @@ const EditContacts = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="firstName" /></Col>
-                  <Col><TextField name="lastName" /></Col>
+                  <Col><TextField id="edit-contact-first" name="firstName" /></Col>
+                  <Col><TextField id="edit-contact-last" name="lastName" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="address" /></Col>
-                  <Col><TextField name="image" /></Col>
+                  <Col><TextField id="edit-contact-address" name="address" /></Col>
+                  <Col><TextField id="edit-contact-image" name="image" /></Col>
                 </Row>
-                <LongTextField name="description" />
-                <SubmitField value="Submit" />
+                <LongTextField id="edit-contact-description" name="description" />
+                <SubmitField id="edit-contact-submit" value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>

@@ -13,7 +13,7 @@ const Contact = ({ contact }) => (
     </Card.Header>
     <Card.Body>
       <Card.Text>{contact.description}</Card.Text>
-      <Link to={`/edit/${contact._id}`}>Edit</Link>
+      <Link id="contact-edit" to={`/contacts/${contact._id}`}>Edit</Link>
     </Card.Body>
   </Card>
 );
