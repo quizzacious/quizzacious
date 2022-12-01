@@ -23,7 +23,6 @@ import QuizHistory from '../pages/QuizHistory';
 import TakingQuiz from '../pages/TakingQuiz';
 import ListQuiz from '../pages/ListQuiz';
 
-
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
   <Router>
