@@ -45,6 +45,9 @@ const Profile = () => {
                   <Nav.Item>
                     <Nav.Link href="/menu">Make a quiz</Nav.Link>
                   </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="/history">Quiz History</Nav.Link>
+                  </Nav.Item>
                 </Nav>
               </Card.Header>
               <Card.Body>

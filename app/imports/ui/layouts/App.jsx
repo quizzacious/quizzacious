@@ -19,6 +19,7 @@ import QuizPage from '../pages/QuizPage';
 import MakeQuestions from '../pages/MakeQuestions';
 import EditContacts from '../pages/EditContacts';
 import ProfileAdm from '../pages/ProfileAdm';
+import QuizHistory from '../pages/QuizHistory';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -32,16 +33,15 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
-        <Route path="/listQuiz" element={<ProtectedRoute><ListQuiz /></ProtectedRoute>} />
         <Route path="/quizPage/:_id/:num" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/history" element={<ProtectedRoute><QuizHistory /></ProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditContacts /></ProtectedRoute>} />
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
         <Route path="/makeQuestions" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
         <Route path="/list" element={<AdminProtectedRoute><ProfileAdm /></AdminProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
-        <Route path="/delete/:_id" element={<AdminProtectedRoute><DeleteQuiz /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
