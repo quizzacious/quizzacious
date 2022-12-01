@@ -4,7 +4,7 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Quizzes } from '../../api/quiz/Quizzes';
+import { Questions } from '../../api/questions/Questions';
 
 // Create a schema to specify the structure of the data to appear in the form.
 
@@ -23,13 +23,13 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the MakeQuiz page for making a quiz. */
+/* Renders the MakeQuestions page for making a question. */
 const MakeQuestions = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { question, answer1, answer2, answer3, answer4, answerFinal } = data;
-    Quizzes.collection.insert(
+    Questions.collection.insert(
       { question, answer1, answer2, answer3, answer4, answerFinal },
       (error) => {
         if (error) {
@@ -48,7 +48,7 @@ const MakeQuestions = () => {
     <Container className="py-3" id="makequestions">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Make Quiz</h2></Col>
+          <Col className="text-center"><h2>Make Questions</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>

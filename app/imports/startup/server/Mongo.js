@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Quizzes } from '../../api/quiz/Quizzes.js';
 import { Contacts } from '../../api/contact/Contacts';
+import { Questions } from '../../api/questions/Questions';
 
 /* eslint-disable no-console */
 
@@ -15,6 +16,20 @@ if (Quizzes.collection.find().count() === 0) {
   if (Meteor.settings.defaultQuizzes) {
     console.log('Creating default quizzes.');
     Meteor.settings.defaultQuizzes.forEach(data => addData(data));
+  }
+}
+
+// Initialize the database with a default data document.
+const addDatas = (data) => {
+  console.log(`  Adding: ${data.title} (${data.owner})`);
+  Questions.collection.insert(data);
+};
+
+// Initialize the QuizzesCollection if empty.
+if (Questions.collection.find().count() === 0) {
+  if (Meteor.settings.defaultQuestions) {
+    console.log('Creating default questions.');
+    Meteor.settings.defaultQuestions.forEach(data => addDatas(data));
   }
 }
 

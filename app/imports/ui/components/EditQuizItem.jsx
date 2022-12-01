@@ -14,7 +14,7 @@ const QuizItem = ({ quiz }) => (
         <p>Subject: {quiz.subject}</p>
         <p>Rating:</p>
         <p>Description: {quiz.description}</p>
-        <Link to={`/quizPage/${quiz._id}`}>Edit This Quiz</Link>
+        <Link to={`/edit/${quiz._id}`}>Edit This Quiz</Link>
       </Card.Text>
     </Card.Body>
   </Card>
@@ -27,18 +27,6 @@ QuizItem.propTypes = {
     subject: String,
     description: String,
     createdAt: Date,
-    name: String,
-    question: String,
-    answer1: String,
-    answer2: String,
-    answer3: String,
-    answer4: String,
-    owner: String,
-    answerFinal: {
-      type: String,
-      allowedValues: ['1', '2', '3', '4'],
-      defaultValue: '1',
-    },
     _id: PropTypes.string,
   }).isRequired,
 };
