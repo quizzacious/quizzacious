@@ -48,6 +48,9 @@ const Profile = () => {
                   <Nav.Item>
                     <Nav.Link href="/listQuiz">Your Quizzes</Nav.Link>
                   </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link href="/history">Quiz History</Nav.Link>
+                  </Nav.Item>
                 </Nav>
               </Card.Header>
               <Card.Body>
