@@ -1,10 +1,15 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Meteor } from 'meteor/meteor';
+import { useTracker } from 'meteor/react-meteor-data';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { useParams } from 'react-router';
 import { Questions } from '../../api/questions/Questions';
+import { Quizzes } from '../../api/quiz/Quizzes';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
 
@@ -26,6 +31,24 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /* Renders the MakeQuestions page for making a question. */
 const MakeQuestions = () => {
 
+  const { _id } = useParams();
+  // console.log('QuizPage', _id);
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { questions, ready } = useTracker(() => {
+    // Get access to Quizzes documents.
+    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
+    const subscription2 = Meteor.subscribe(Questions.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription2.ready() && subscription.ready();
+    // Get the document
+    const question = Questions.collection.find();
+    // DELETE MAYBE??? const takenQuiz = TakenQuizzes.collection.findOne(take_id);
+    return {
+      questions: question,
+      ready: rdy,
+    };
+  }, [_id]);
+
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { question, answer1, answer2, answer3, answer4, answerFinal } = data;
@@ -44,7 +67,7 @@ const MakeQuestions = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return (
+  return ready ? (
     <Container className="py-3" id="makequestions">
       <Row className="justify-content-center">
         <Col xs={5}>
@@ -66,7 +89,7 @@ const MakeQuestions = () => {
         </Col>
       </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
 export default MakeQuestions;

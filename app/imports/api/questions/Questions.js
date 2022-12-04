@@ -13,7 +13,9 @@ class QuestionsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      quiz: String,
       question: String,
+      questionNum: Number,
       answer1: String,
       answer2: String,
       answer3: String,
