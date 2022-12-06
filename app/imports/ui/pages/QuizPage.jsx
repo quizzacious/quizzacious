@@ -36,7 +36,7 @@ const QuizPage = () => {
     if (taken[0]) {
       return taken[0]._id;
     }
-    return TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date(), inputtedAnswers: [] })[0]._id;
+    return TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date() })[0]._id;
   };
 
   return ready ? (
@@ -57,6 +57,9 @@ const QuizPage = () => {
               </Card.Text>
               <Card.Text>
                 Description: {_quiz.description}
+              </Card.Text>
+              <Card.Text>
+                Score: {taken[0].score}/100
               </Card.Text>
               <Card.Text>
                 <Link to={`/taking/${_id}/${takeId()}/1`}>Begin</Link>
