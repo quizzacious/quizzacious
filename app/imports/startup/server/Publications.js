@@ -4,6 +4,7 @@ import { Quizzes } from '../../api/quiz/Quizzes';
 import { Ratings } from '../../api/rating/Ratings';
 import { TakenQuizzes } from '../../api/takenquiz/TakenQuizzes';
 import { Contacts } from '../../api/contact/Contacts';
+import { InputtedAnswers } from '../../api/inputtedanswer/InputtedAnswers';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -46,6 +47,15 @@ Meteor.publish(TakenQuizzes.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return TakenQuizzes.collection.find({ taker: username });
+  }
+  return this.ready();
+});
+
+/** Define a publication to publish a user's answers to taken quizzes. */
+Meteor.publish(InputtedAnswers.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return InputtedAnswers.collection.find({ taker: username });
   }
   return this.ready();
 });
