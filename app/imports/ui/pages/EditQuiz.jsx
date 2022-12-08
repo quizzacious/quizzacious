@@ -50,7 +50,7 @@ const EditQuiz = () => {
                 <TextField name="subject" />
                 <TextField name="description" />
                 <SubmitField value="Save" />
-                <Card.Link href="/makeQuestions">Edit Questions</Card.Link>
+                <Card.Link href="/listQuiz">Back</Card.Link>
                 <ErrorsField />
               </Card.Body>
             </Card>

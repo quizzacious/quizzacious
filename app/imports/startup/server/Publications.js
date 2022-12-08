@@ -6,7 +6,6 @@ import { TakenQuizzes } from '../../api/takenquiz/TakenQuizzes';
 import { Contacts } from '../../api/contact/Contacts';
 import { InputtedAnswers } from '../../api/inputtedanswer/InputtedAnswers';
 import { Questions } from '../../api/questions/Questions';
-import { Question } from 'react-bootstrap-icons';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
