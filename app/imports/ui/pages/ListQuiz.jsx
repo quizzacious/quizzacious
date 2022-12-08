@@ -31,7 +31,7 @@ const ListQuiz = () => {
             <h2>Your Quizzes</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {quizzes.map((quiz, index) => (<Col key={index}><ListQuizItem quiz={quiz} /></Col>))}
+            {quizzes.map((quiz, index) => (<Col key={index}><ListQuizItem quiz={quiz} collection={Quizzes.collection} /></Col>))}
           </Row>
         </Col>
       </Row>

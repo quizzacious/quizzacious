@@ -53,7 +53,7 @@ const MakeQuiz = () => {
                 <TextField id="make-quiz-subject" name="subject" />
                 <TextField id="make-quiz-description" name="description" />
                 <SubmitField id="make-quiz-submit" value="Save" />
-                <Card.Link id="make-quiz" href="/makeQuestions">Create Questions</Card.Link>
+                <Card.Link id="make-quiz" href="/listQuiz">Create Questions</Card.Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
