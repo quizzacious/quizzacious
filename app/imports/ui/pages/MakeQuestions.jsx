@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Questions } from '../../api/questions/Questions';
 import { Quizzes } from '../../api/quiz/Quizzes';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -31,7 +32,8 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /* Renders the MakeQuestions page for making a question. */
 const MakeQuestions = () => {
 
-  const { _id, ques_id } = useParams();
+  const { _id, num } = useParams();
+  const questionNum = Number(num);
   // console.log('QuizPage', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { questions, ready } = useTracker(() => {
@@ -47,13 +49,13 @@ const MakeQuestions = () => {
       questions: question,
       ready: rdy,
     };
-  }, [_id, ques_id]);
+  }, [_id, num]);
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { question, answer1, answer2, answer3, answer4, answerFinal } = data;
     Questions.collection.insert(
-      { question, answer1, answer2, answer3, answer4, answerFinal },
+      { quiz: _id, question, questionNum, answer1, answer2, answer3, answer4, answerFinal },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -81,8 +83,20 @@ const MakeQuestions = () => {
                 <TextField id="make-questions3" name="answer3" />
                 <TextField id="make-questions4" name="answer4" />
                 <TextField id="make-questions5" name="answerFinal" />
-                <SubmitField id="make-questions-submit" value="Next" />
+                <SubmitField id="make-questions-submit" value="Save" />
                 <ErrorsField />
+                <Card.Text>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <Link to={questionNum > 1 ? `/makeQuestions/${_id}/${questionNum - 1}` : '#'}>Prev</Link>
+                </Card.Text>
+                <Card.Text>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <Link to={questionNum < 10 ? `/makeQuestions/${_id}/${questionNum + 1}` : '#'}>Next</Link>
+                </Card.Text>
+                <Card.Text>
+                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                  <Link to="/listQuiz">Done</Link>
+                </Card.Text>
               </Card.Body>
             </Card>
           </AutoForm>

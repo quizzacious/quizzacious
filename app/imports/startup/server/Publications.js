@@ -5,6 +5,8 @@ import { Ratings } from '../../api/rating/Ratings';
 import { TakenQuizzes } from '../../api/takenquiz/TakenQuizzes';
 import { Contacts } from '../../api/contact/Contacts';
 import { InputtedAnswers } from '../../api/inputtedanswer/InputtedAnswers';
+import { Questions } from '../../api/questions/Questions';
+import { Question } from 'react-bootstrap-icons';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -38,6 +40,21 @@ Meteor.publish(Quizzes.userPublicationName, function () {
 Meteor.publish(Quizzes.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Quizzes.collection.find();
+  }
+  return this.ready();
+});
+
+/** Define a publication to publish all quizzes. */
+Meteor.publish(Questions.userPublicationName, function () {
+  if (this.userId) {
+    return Questions.collection.find();
+  }
+  return this.ready();
+});
+// Admin-level publication.
+Meteor.publish(Questions.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Questions.collection.find();
   }
   return this.ready();
 });
