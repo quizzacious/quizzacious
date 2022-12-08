@@ -36,7 +36,7 @@ const MakeQuestions = () => {
   const questionNum = Number(num);
   // console.log('QuizPage', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { questions, ready } = useTracker(() => {
+  const { ready } = useTracker(() => {
     // Get access to Quizzes documents.
     const subscription = Meteor.subscribe(Quizzes.userPublicationName);
     const subscription2 = Meteor.subscribe(Questions.userPublicationName);
