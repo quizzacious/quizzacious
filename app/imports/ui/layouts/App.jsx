@@ -19,6 +19,7 @@ import QuizPage from '../pages/QuizPage';
 import MakeQuestions from '../pages/MakeQuestions';
 import EditContacts from '../pages/EditContacts';
 import ProfileAdm from '../pages/ProfileAdm';
+import QuizHistory from '../pages/QuizHistory';
 import TakingQuiz from '../pages/TakingQuiz';
 import ListQuiz from '../pages/ListQuiz';
 
@@ -34,6 +35,7 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
+        <Route path="/history" element={<ProtectedRoute><QuizHistory /></ProtectedRoute>} />
         <Route path="/listQuiz" element={<ProtectedRoute><ListQuiz /></ProtectedRoute>} />
         <Route path="/quizpage/:_id" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
         <Route path="/taking/:_id/:take_id/:num" element={<ProtectedRoute><TakingQuiz /></ProtectedRoute>} />
