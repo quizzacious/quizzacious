@@ -59,10 +59,7 @@ const QuizPage = () => {
                 Description: {_quiz.description}
               </Card.Text>
               <Card.Text>
-                Score: {taken[0].score}/100
-              </Card.Text>
-              <Card.Text>
-                <Link className="p-3" to={`/makeQuestions/${_id}/${takeId()}/1`}>Make Questions</Link>
+                <Link className="p-3" to={`/makeQuestions/${_id}/1`}>Make Questions</Link>
                 <Link className="p-3" to={`/makeQuestions/${_id}/${takeId()}/1`}>Edit Questions</Link>
               </Card.Text>
             </Card.Body>
