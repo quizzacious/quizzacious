@@ -1,11 +1,14 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Quizzes } from '../../api/quiz/Quizzes';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
 
@@ -21,10 +24,27 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 const MakeQuiz = () => {
   let item;
   // On submit, insert the data.
-  const submit = (data, formRef) => {
+
+  const { quiz, ready } = useTracker(() => {
+    // Get access to Quizzes documents.
+    const subscription = Meteor.subscribe(Quizzes.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the document
+    const quizItem = Quizzes.collection.find({ _id: item }).fetch();
+    return {
+      quiz: quizItem,
+      ready: rdy,
+    };
+  }, [item]);
+
+  const submit = (data) => {
     const { title, subject, description } = data;
     const owner = Meteor.user().username;
     const createdAt = new Date();
+    console.log(quiz[0]);
+    console.log(item);
+    console.log(quiz);
     item = Quizzes.collection.insert(
       { title, subject, description, createdAt, owner },
       (error) => {
@@ -32,7 +52,7 @@ const MakeQuiz = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
+          // formRef.reset();
         }
       },
     );
@@ -40,7 +60,7 @@ const MakeQuiz = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return (
+  return ready ? (
     <Container id="makequiz" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
@@ -52,7 +72,7 @@ const MakeQuiz = () => {
                 <TextField id="make-quiz-subject" name="subject" />
                 <TextField id="make-quiz-description" name="description" />
                 <SubmitField id="make-quiz-submit" value="Save" />
-                <Card.Link id="make-questions" to={`/makeQuestions/${item._id}`}>Create Questions</Card.Link>
+                <Link id="make-questions" to={quiz[0] ? `/makeQuestions/${quiz[0]._id}` : '#'}>Create Questions</Link>
                 <ErrorsField />
               </Card.Body>
             </Card>
@@ -60,7 +80,7 @@ const MakeQuiz = () => {
         </Col>
       </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
 export default MakeQuiz;
