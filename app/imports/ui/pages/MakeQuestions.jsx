@@ -31,7 +31,7 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 /* Renders the MakeQuestions page for making a question. */
 const MakeQuestions = () => {
 
-  const { _id } = useParams();
+  const { _id, ques_id } = useParams();
   // console.log('QuizPage', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { questions, ready } = useTracker(() => {
@@ -47,7 +47,7 @@ const MakeQuestions = () => {
       questions: question,
       ready: rdy,
     };
-  }, [_id]);
+  }, [_id, ques_id]);
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
