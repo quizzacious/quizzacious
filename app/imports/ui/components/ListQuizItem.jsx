@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const QuizItem = ({ quiz }) => (
+const ListQuizItem = ({ quiz }) => (
   <Card className="h-100">
     <Card.Header>
       <Card.Title>{quiz.title}</Card.Title>
@@ -21,7 +21,7 @@ const QuizItem = ({ quiz }) => (
 );
 
 // Require a document to be passed to this component.
-QuizItem.propTypes = {
+ListQuizItem.propTypes = {
   quiz: PropTypes.shape({
     title: String,
     subject: String,
@@ -31,4 +31,4 @@ QuizItem.propTypes = {
   }).isRequired,
 };
 
-export default QuizItem;
+export default ListQuizItem;
