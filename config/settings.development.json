@@ -11,6 +11,7 @@
   "defaultContacts": [
     {
       "firstName": "Henri", "lastName": "Casanova", "address": "POST 307, University of Hawaii",
+      "major": "Computer Science",
       "image": "https://avatars0.githubusercontent.com/u/7494478?s=460&v=4",
       "description": "I am originally from France. I maintain a list of reports from my surf sessions. I have proof that I ran the Hana relay with an actual Team.",
       "owner": "john@foo.com"

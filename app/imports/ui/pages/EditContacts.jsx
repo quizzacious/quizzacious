@@ -32,8 +32,8 @@ const EditContacts = () => {
   // console.log('EditContacts', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { firstName, lastName, address, image, description } = data;
-    Contacts.collection.update(_id, { $set: { firstName, lastName, address, image, description } }, (error) => (error ?
+    const { firstName, lastName, address, major, image, description } = data;
+    Contacts.collection.update(_id, { $set: { firstName, lastName, address, major, image, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -53,6 +53,7 @@ const EditContacts = () => {
                 <Row>
                   <Col><TextField id="edit-contact-address" name="address" /></Col>
                   <Col><TextField id="edit-contact-image" name="image" /></Col>
+                  <Col><TextField id="edit-contact-major" name="major" /></Col>
                 </Row>
                 <LongTextField id="edit-contact-description" name="description" />
                 <SubmitField id="edit-contact-submit" value="Submit" />

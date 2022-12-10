@@ -16,6 +16,7 @@ class ContactsCollection {
       firstName: String,
       lastName: String,
       address: String,
+      major: String,
       image: String,
       description: String,
       owner: String,
