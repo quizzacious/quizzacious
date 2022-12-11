@@ -29,7 +29,7 @@ const QuizPage = () => {
     const rdy = subscription.ready() && subscription2.ready() && subscription3.ready();
     // Get the document
     const quizItem = Quizzes.collection.findOne(_id);
-    const totQuestions = Questions.collection.find({ quiz: _id }).length;
+    const totQuestions = Questions.collection.find({ quiz: _id }).fetch().length;
     const questionItem = Questions.collection.findOne({ quiz: _id, questionNum });
     const answerItems = InputtedAnswers.collection.find({ takenQuiz: take_id, questionNum }).fetch();
     return {
@@ -96,7 +96,7 @@ const QuizPage = () => {
                 </Card.Text>
                 <Card.Text>
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link to={questionNum <= total ? `/taking/${_id}/${take_id}/${questionNum + 1}` : `/quizPage/${_id}`}>{questionNum <= total ? 'Next' : 'Finish'}</Link>
+                  <Link to={questionNum < total ? `/taking/${_id}/${take_id}/${questionNum + 1}` : `/quizPage/${_id}`}>{questionNum < total ? 'Next' : 'Finish'}</Link>
                 </Card.Text>
               </Card.Body>
             </Card>
