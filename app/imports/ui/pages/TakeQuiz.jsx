@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import QuizItem from '../components/QuizItem';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
@@ -9,7 +10,7 @@ import { Quizzes } from '../../api/quiz/Quizzes';
 /* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const TakeQuiz = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, stuffs: quizzes } = useTracker(() => {
+  const { ready, quizzes } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Quizzes documents.
@@ -19,7 +20,7 @@ const TakeQuiz = () => {
     // Get the Quizzes documents
     const quizItems = Quizzes.collection.find({}).fetch();
     return {
-      stuffs: quizItems,
+      quizzes: quizItems,
       ready: rdy,
     };
   }, []);
@@ -29,6 +30,7 @@ const TakeQuiz = () => {
         <Col>
           <Col className="text-center">
             <h2>Take Quiz</h2>
+            <Link className="p-4" to="/filter">Filter</Link>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {quizzes.map((quiz, index) => (<Col key={index}><QuizItem quiz={quiz} /></Col>))}

@@ -23,6 +23,7 @@ import QuizHistory from '../pages/QuizHistory';
 import TakingQuiz from '../pages/TakingQuiz';
 import ListQuiz from '../pages/ListQuiz';
 import ThisQuiz from '../pages/ThisQuiz';
+import Filter from '../pages/Filter';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -36,6 +37,7 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/take" element={<ProtectedRoute><TakeQuiz /></ProtectedRoute>} />
+        <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
         <Route path="/history" element={<ProtectedRoute><QuizHistory /></ProtectedRoute>} />
         <Route path="/listQuiz" element={<ProtectedRoute><ListQuiz /></ProtectedRoute>} />
         <Route path="/quizpage/:_id" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
