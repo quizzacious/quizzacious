@@ -59,7 +59,7 @@ const QuizPage = () => {
                 Description: {_quiz.description}
               </Card.Text>
               <Card.Text>
-                Score: {taken[0].score}/100
+                Score: {taken[0] ? taken[0].score : '0'}/100
               </Card.Text>
               <Card.Text>
                 <Link to={`/taking/${_id}/${takeId()}/1`}>Begin</Link>
