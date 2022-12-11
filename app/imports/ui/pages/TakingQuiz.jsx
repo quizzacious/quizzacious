@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
 import { InputtedAnswers } from '../../api/inputtedanswer/InputtedAnswers';
+import { Questions } from '../../api/questions/Questions';
 
 /* Renders the QuizPage page for preparing the actual quiz. */
 const QuizPage = () => {
@@ -19,17 +20,22 @@ const QuizPage = () => {
   const questionNum = Number(num);
   // console.log('QuizPage', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { quiz, answers, ready } = useTracker(() => {
+  const { quiz, total, question, answers, ready } = useTracker(() => {
     // Get access to Quizzes documents.
     const subscription = Meteor.subscribe(Quizzes.userPublicationName);
+    const subscription2 = Meteor.subscribe(Questions.userPublicationName);
     const subscription3 = Meteor.subscribe(InputtedAnswers.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready() && subscription3.ready();
+    const rdy = subscription.ready() && subscription2.ready() && subscription3.ready();
     // Get the document
     const quizItem = Quizzes.collection.findOne(_id);
+    const totQuestions = Questions.collection.find({ quiz: _id }).length;
+    const questionItem = Questions.collection.findOne({ quiz: _id, questionNum });
     const answerItems = InputtedAnswers.collection.find({ takenQuiz: take_id, questionNum }).fetch();
     return {
       quiz: quizItem,
+      total: totQuestions,
+      question: questionItem,
       answers: answerItems,
       ready: rdy,
     };
@@ -39,7 +45,7 @@ const QuizPage = () => {
   const bridge = new SimpleSchema2Bridge(new SimpleSchema({ answer: {
     type: String,
     allowedValues: ['1', '2', '3', '4'],
-    defaultValue: (answers[0] ? answers[0].answer : '5'),
+    defaultValue: (answers[0] ? answers[0].answer : '1'),
   } }));
 
   // On successful submit, insert the data.
@@ -67,19 +73,19 @@ const QuizPage = () => {
             <Card>
               <Card.Body>
                 <Card.Text>
-                  Question: {quiz.questions[num - 1].question}
+                  Question: {question.question}
                 </Card.Text>
                 <Card.Text>
-                  1: {quiz.questions[num - 1].answer1}
+                  1: {question.answer1}
                 </Card.Text>
                 <Card.Text>
-                  2: {quiz.questions[num - 1].answer2}
+                  2: {question.answer2}
                 </Card.Text>
                 <Card.Text>
-                  3: {quiz.questions[num - 1].answer3}
+                  3: {question.answer3}
                 </Card.Text>
                 <Card.Text>
-                  4: {quiz.questions[num - 1].answer4}
+                  4: {question.answer4}
                 </Card.Text>
                 <SelectField name="answer" />
                 <SubmitField value="Submit" />
@@ -90,7 +96,7 @@ const QuizPage = () => {
                 </Card.Text>
                 <Card.Text>
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link to={questionNum < 10 ? `/taking/${_id}/${take_id}/${questionNum + 1}` : '#'}>Next</Link>
+                  <Link to={questionNum <= total ? `/taking/${_id}/${take_id}/${questionNum + 1}` : `/quizPage/${_id}`}>{questionNum <= total ? 'Next' : 'Finish'}</Link>
                 </Card.Text>
               </Card.Body>
             </Card>
