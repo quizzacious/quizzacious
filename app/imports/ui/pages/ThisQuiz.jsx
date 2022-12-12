@@ -7,7 +7,6 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
-import { TakenQuizzes } from '../../api/takenquiz/TakenQuizzes';
 
 /* Renders the QuizPage page for preparing the actual quiz. */
 const QuizPage = () => {
@@ -15,29 +14,19 @@ const QuizPage = () => {
   const { _id } = useParams();
   // console.log('QuizPage', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { _quiz, taken, ready } = useTracker(() => {
+  const { _quiz, ready } = useTracker(() => {
     // Get access to Quizzes documents.
     const subscription = Meteor.subscribe(Quizzes.userPublicationName);
-    const subscription2 = Meteor.subscribe(TakenQuizzes.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready() && subscription2.ready();
+    const rdy = subscription.ready();
     // Get the document
     const quizItem = Quizzes.collection.findOne(_id);
-    const takenItem = TakenQuizzes.collection.find({ quiz: _id }).fetch();
     return {
       _quiz: quizItem,
-      taken: takenItem,
       ready: rdy,
     };
   }, [_id]);
   // console.log('QuizPage', doc, ready);
-
-  const takeId = () => {
-    if (taken[0]) {
-      return taken[0]._id;
-    }
-    return TakenQuizzes.collection.insert({ taker: Meteor.user().username, quiz: _id, score: 0, createdAt: new Date() })[0]._id;
-  };
 
   return ready ? (
     <Container id="quizpage" className="py-3">
@@ -60,7 +49,7 @@ const QuizPage = () => {
               </Card.Text>
               <Card.Text>
                 <Link className="p-3" to={`/makeQuestions/${_id}/1`}>Make Questions</Link>
-                <Link className="p-3" to={`/makeQuestions/${_id}/${takeId()}/1`}>Edit Questions</Link>
+                <Link className="p-3" to="/ListQuestion">Edit Questions</Link>
               </Card.Text>
             </Card.Body>
           </Card>
