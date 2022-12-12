@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row, Stack, Nav } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, Nav } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Contact from '../components/Contact';
@@ -32,35 +32,20 @@ const Profile = () => {
           </Row>
         </Col>
         <Col md={7} className="py-5">
-          <Stack gap={4}>
-            <Card>
-              <Card.Header>
-                <Nav fill variant="tabs" defaultActiveKey="/home">
-                  <Nav.Item>
-                    <Nav.Link href="/home">Home Page</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link href="/take">Take a Quiz</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link href="/make">Make a Quiz</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link href="/listQuiz">Your Quizzes</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link href="/history">Quiz History</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Card.Header>
-              <Card.Body>
-                <Card.Title>Mockup Tab</Card.Title>
-                <Card.Text>
-                  Does something corresponding to the Tab chosen
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Stack>
+          <Card>
+            <Card.Header as="h5">Check Your Own Quizzes</Card.Header>
+            <Card.Body>
+              <Card.Title>Look at your quizzes . . . </Card.Title>
+              <Card.Text>This is a button to see your own quizzes that you made!</Card.Text>
+              <Button href="/listQuiz">Your Quizzes</Button>
+            </Card.Body>
+            <Card.Footer as="h5">Check Your Quizzes History</Card.Footer>
+            <Card.Body>
+              <Card.Title>Look through your quiz history</Card.Title>
+              <Card.Text>Look at what you have taken in the past and see what you can do better . . .</Card.Text>
+              <Button href="/history">Quiz History</Button>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
