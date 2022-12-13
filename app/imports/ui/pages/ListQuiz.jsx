@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { _ } from 'meteor/underscore';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Quizzes } from '../../api/quiz/Quizzes';
 import ListQuizItem from '../components/ListQuizItem';
@@ -31,7 +32,7 @@ const ListQuiz = () => {
             <h2>Your Quizzes</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {quizzes.map((quiz, index) => (<Col key={index}><ListQuizItem quiz={quiz} collection={Quizzes.collection} /></Col>))}
+            {_.filter(quizzes, (quiz) => quiz.owner === Meteor.user().username).map((quiz, index) => (<Col key={index}><ListQuizItem quiz={quiz} collection={Quizzes.collection} /></Col>))}
           </Row>
         </Col>
       </Row>
