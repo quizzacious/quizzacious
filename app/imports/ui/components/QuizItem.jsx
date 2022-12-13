@@ -14,7 +14,7 @@ const QuizItem = ({ quiz }) => (
         Subject: {quiz.subject}
       </Card.Text>
       <Card.Text>
-        Rating:
+        Creator: {quiz.owner}
       </Card.Text>
       <Card.Text>
         Description: {quiz.description}
