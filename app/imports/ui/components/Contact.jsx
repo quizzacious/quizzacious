@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Image, Card, Stack, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+const link = (contact, show) => (show ? <Link id="contact-edit" to={`/contacts/${contact._id}`}>Edit Profile</Link> : '');
+
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Contact = ({ contact }) => (
+const Contact = ({ contact, showOptions }) => (
   <Card className="h-100">
     <Card.Header>
       <Stack direction="horizontal" gap={3}>
@@ -21,7 +23,7 @@ const Contact = ({ contact }) => (
       <Card.Title>About Me</Card.Title>
       <Card.Text>{contact.description}</Card.Text>
     </Card.Body>
-    <Card.Footer> <Link id="contact-edit" to={`/contacts/${contact._id}`}>Edit Profile</Link> </Card.Footer>
+    <Card.Footer>{link(contact, showOptions)}</Card.Footer>
   </Card>
 );
 
@@ -37,6 +39,7 @@ Contact.propTypes = {
     _id: PropTypes.string,
     owner: PropTypes.string,
   }).isRequired,
+  showOptions: PropTypes.bool.isRequired,
 };
 
 export default Contact;
