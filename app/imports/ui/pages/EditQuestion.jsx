@@ -18,7 +18,7 @@ const EditQuestion = () => {
   const { _id, _id2 } = useParams();
   // console.log('EditQuestion', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { doc, doc2, ready } = useTracker(() => {
+  const { doc, ready } = useTracker(() => {
     // Get access to Questions documents.
     const subscription = Meteor.subscribe(Questions.userPublicationName);
     const subscription2 = Meteor.subscribe(Quizzes.userPublicationName);
