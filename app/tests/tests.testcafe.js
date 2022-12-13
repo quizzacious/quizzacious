@@ -9,6 +9,7 @@ import { quizpage } from './quizpage';
 import { takingquiz } from './takingquiz';
 import { makequestions } from './makequestions';
 import { editprofile } from './editcontact';
+import { signupPage } from './signup.page';
 
 /* global fixture:false, test:false */
 
@@ -37,8 +38,6 @@ test('Test the makequiz', async (testController) => {
   await navBar.gotoMakeQuiz(testController);
   await makequiz.isDisplayed(testController);
   await makequiz.makequizform(testController);
-  await navBar.gotoTakeQuiz(testController);
-  await takequiz.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
 });
@@ -55,7 +54,7 @@ test('Test the makequestions', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test('Test the takequiz', async (testController) => {
+test.only('Test the takequiz', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
@@ -78,6 +77,11 @@ test('Test the Profile', async (testController) => {
   await profile.profileedit(testController);
   await editprofile.editprofileform(testController);
   await navBar.gotoProfile(testController);
+  await profile.isDisplayed(testController);
+  await profile.clickprofileuser(testController);
+  await profile.isDisplayed(testController);
+  await navBar.gotoProfile(testController);
+  await profile.clickprofilehistory(testController);
   await profile.isDisplayed(testController);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);

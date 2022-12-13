@@ -16,12 +16,14 @@ class EditProfile {
     const lastName = 'West';
     const address = 'Florida';
     const image = 'https://i.guim.co.uk/img/media/5a6884a68d01ec287e8df8dcab2cf6a47d97eaf2/0_9_2000_1200/master/2000.jpg?width=620&quality=45&dpr=2&s=none';
+    const major = 'Computer Science';
     const description = 'I had dinner with Tromp';
     await this.isDisplayed(testController);
     await testController.typeText('#edit-contact-first', firstName);
     await testController.typeText('#edit-contact-last', lastName);
     await testController.typeText('#edit-contact-address', address);
     await testController.typeText('#edit-contact-image', image);
+    await testController.typeText('#edit-contact-major', major);
     await testController.typeText('#edit-contact-description', description);
     await testController.click('#edit-contact-submit input.btn.btn-primary');
     await testController.click('button.swal-button--confirm');

@@ -55,13 +55,13 @@ const Profile = () => {
             <Card.Body>
               <Card.Title>Look at your quizzes . . . </Card.Title>
               <Card.Text>This is a button to see your own quizzes that you made!</Card.Text>
-              <Button href="/listQuiz">Your Quizzes</Button>
+              <Button id="profile-quiz-user" href="/listQuiz">Your Quizzes</Button>
             </Card.Body>
             <Card.Footer as="h5">Check Your Quizzes History</Card.Footer>
             <Card.Body>
               <Card.Title>Look through your quiz history!</Card.Title>
               <Card.Text>Look at what you have taken in the past and see what you can do better . . .</Card.Text>
-              <Button href="/history">Quiz History</Button>
+              <Button id="profile-quiz-history" href="/history">Quiz History</Button>
             </Card.Body>
             {newProfile()}
           </Card>

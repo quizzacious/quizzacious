@@ -15,6 +15,14 @@ class Profile {
     await testController.click('#contact-edit');
   }
 
+  async clickprofileuser(testController) {
+    await testController.click('#profile-quiz-user');
+  }
+
+  async clickprofilehistory(testController) {
+    await testController.click('#profile-quiz-history');
+  }
+
 }
 
 export const profile = new Profile();
