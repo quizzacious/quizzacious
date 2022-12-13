@@ -14,7 +14,6 @@ class TakeQuiz {
   async selectquiz(testController) {
     await this.isDisplayed(testController);
     await testController.click(Selector('a').withText('Start This Quiz'));
-    await testController.click(Selector('a').withText('Begin'));
   }
 }
 
