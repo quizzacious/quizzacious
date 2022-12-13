@@ -9,7 +9,6 @@ import { quizpage } from './quizpage';
 import { takingquiz } from './takingquiz';
 import { makequestions } from './makequestions';
 import { editprofile } from './editcontact';
-import { signupPage } from './signup.page';
 
 /* global fixture:false, test:false */
 
