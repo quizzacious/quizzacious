@@ -18,55 +18,56 @@
     },
     {
       "firstName": "Kim", "lastName": "Binsted", "address": "POST 307, University of Hawaii",
+      "major": "Math",
       "image": "https://www.ics.hawaii.edu/wp-content/uploads/2013/08/kim_binsted-square-300x300.jpg",
       "description": "Kim Binsted received her BSc in Physics at McGill (1991), and her PhD in Artificial Intelligence from the University of Edinburgh (1996). Her thesis topic was the computational modeling and generation of punning riddles, and her program, JAPE (Joke Analysis and Production Engine), generated puns such as What do you call a Martian who drinks beer? An ale-ien!",
       "owner": "admin@foo.com"
     }
   ],
-  "defaultData": [
-    { "name": "First Question", "question": "1 + 1", "answer1": "0", "answer2": "1", "answer3": "2", "answer4": "3", "owner": "john@foo.com", "answerFinal": "2" },
-    { "name": "Second Question", "question": "2 + 2", "answer1": "0", "answer2": "2", "answer3": "4", "answer4": "6", "owner": "john@foo.com", "answerFinal": "2" },
-
-    { "name": "First Admin Question", "question": "11 + 11", "answer1": "0", "answer2": "11", "answer3": "22", "answer4": "33", "owner": "admin@foo.com", "answerFinal": "2" },
-    { "name": "Second Admin Question", "question": "22 + 22", "answer1": "0", "answer2": "22", "answer3": "44", "answer4": "66", "owner": "admin@foo.com", "answerFinal": "2" }
-  ],
-
   "defaultQuizzes": [
-    { "title": "Math Quiz", "subject": "math", "description": "A simple math quiz.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "admin@foo.com", "questions": [
-      {
-        "question": "2 + 2 = ?",
-        "answer1": "69",
-        "answer2": "420",
-        "answer3": "4",
-        "answer4": "yes",
-        "answerFinal": "3"
-      },
-      {
-        "question": "cos(pi) = ?",
-        "answer1": "mmm, pie...",
-        "answer2": "8 & 3/4",
-        "answer3": "insert funni answer",
-        "answer4": "-1",
-        "answerFinal": "4"
-      }
-    ]},
-    { "title": "Bad Quiz", "subject": "your mom", "description": "git rekt nerd.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "john@foo.com", "questions": [
-      {
-        "question": "u smell",
-        "answer1": "RUDE",
-        "answer2": "*Gasp!*",
-        "answer3": "So truuuuu",
-        "answer4": "Eekum Bokum",
-        "answerFinal": "3"
-      },
-      {
-        "question": "Gamer word",
-        "answer1": "CANCELED",
-        "answer2": "9x this question",
-        "answer3": "this is just to demonstrate a problematic quiz, plz don't hurt me",
-        "answer4": "-1",
-        "answerFinal": "1"
-      }
-    ]}
+    { "_id": "507f191e810c19729de860ea", "title": "Math Quiz", "subject": "Math", "description": "A simple math quiz.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "admin@foo.com" },
+    { "_id": "00000020f51bb4362eee2a4d", "title": "Bad Quiz", "subject": "your mom", "description": "git rekt nerd.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "john@foo.com" }
+  ],
+  "defaultQuestions": [
+    {
+      "quiz": "507f191e810c19729de860ea",
+      "questionNum": 1,
+      "question": "2 + 2 = ?",
+      "answer1": "69",
+      "answer2": "420",
+      "answer3": "4",
+      "answer4": "yes",
+      "answerFinal": "3"
+    },
+    {
+      "quiz": "507f191e810c19729de860ea",
+      "questionNum": 2,
+      "question": "cos(pi) = ?",
+      "answer1": "mmm, pie...",
+      "answer2": "8 & 3/4",
+      "answer3": "insert funni answer",
+      "answer4": "-1",
+      "answerFinal": "4"
+    },
+    {
+      "quiz": "00000020f51bb4362eee2a4d",
+      "questionNum": 1,
+      "question": "u smell",
+      "answer1": "RUDE",
+      "answer2": "*Gasp!*",
+      "answer3": "So truuuuu",
+      "answer4": "Eekum Bokum",
+      "answerFinal": "3"
+    },
+    {
+      "quiz": "00000020f51bb4362eee2a4d",
+      "questionNum": 2,
+      "question": "Gamer word",
+      "answer1": "CANCELED",
+      "answer2": "9x this question",
+      "answer3": "this is just to demonstrate a problematic quiz, plz don't hurt me",
+      "answer4": "-1",
+      "answerFinal": "1"
+    }
   ]
 }
