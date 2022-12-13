@@ -49,7 +49,6 @@ const QuizPage = () => {
               </Card.Text>
               <Card.Text>
                 <Link className="p-3" to={`/makeQuestions/${_id}/1`}>Make Questions</Link>
-                <Link className="p-3" to="/ListQuestion">Edit Questions</Link>
               </Card.Text>
             </Card.Body>
           </Card>

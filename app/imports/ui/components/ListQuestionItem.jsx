@@ -6,10 +6,6 @@ import { Trash } from 'react-bootstrap-icons';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ListQuestionItem = ({ question, collection }) => {
-  const removeItem = (docID) => {
-    console.log(`The item to remove is ${docID}`);
-    collection.remove(docID);
-  };
   return (
     <Card className="h-100">
       <Card.Body>
@@ -20,8 +16,6 @@ const ListQuestionItem = ({ question, collection }) => {
           <p>Answer 3: {question.answer3}</p>
           <p>Answer 4: {question.answer4}</p>
           <p>Correct Answer: {question.answerFinal}</p>
-          <Link className="p-3" to={`/editQuestion/${question._id}`}>Edit This Question</Link>
-          <Button className="p-1" variant="danger" onClick={() => removeItem(question._id)}><Trash /></Button>
         </Card.Text>
       </Card.Body>
     </Card>
