@@ -14,7 +14,7 @@ import { Quizzes } from '../../api/quiz/Quizzes';
 
 /* Create a schema to specify the structure of the data to appear in the form. */
 const makeSchema = (allInterests) => new SimpleSchema({
-  subject: { type: Array, label: 'Interests', optional: true },
+  subject: { type: Array, label: 'Subject', optional: true },
   'subject.$': { type: String, allowedValues: allInterests },
 });
 
