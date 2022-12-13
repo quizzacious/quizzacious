@@ -24,6 +24,8 @@ import TakingQuiz from '../pages/TakingQuiz';
 import ListQuiz from '../pages/ListQuiz';
 import ThisQuiz from '../pages/ThisQuiz';
 import Filter from '../pages/Filter';
+import ListQuestion from '../pages/ListQuestion';
+import EditQuestion from '../pages/EditQuestion';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -40,6 +42,7 @@ const App = () => (
         <Route path="/filter" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
         <Route path="/history" element={<ProtectedRoute><QuizHistory /></ProtectedRoute>} />
         <Route path="/listQuiz" element={<ProtectedRoute><ListQuiz /></ProtectedRoute>} />
+        <Route path="/listQuestion" element={<ProtectedRoute><ListQuestion /></ProtectedRoute>} />
         <Route path="/quizpage/:_id" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />
         <Route path="/thisQuiz/:_id" element={<ProtectedRoute><ThisQuiz /></ProtectedRoute>} />
         <Route path="/taking/:_id/:take_id/:num" element={<ProtectedRoute><TakingQuiz /></ProtectedRoute>} />
@@ -49,6 +52,7 @@ const App = () => (
         <Route path="/makeQuestions/:_id/:num" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
         <Route path="/list" element={<AdminProtectedRoute><ProfileAdm /></AdminProtectedRoute>} />
         <Route path="/edit/:_id" element={<ProtectedRoute><EditQuiz /></ProtectedRoute>} />
+        <Route path="/editQuestion/:_id" element={<ProtectedRoute><EditQuestion /></ProtectedRoute>} />
         <Route path="/admin" element={<AdminProtectedRoute><ProfileAdmin /></AdminProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
