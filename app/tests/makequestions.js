@@ -12,6 +12,8 @@ class MakeQuestions {
   }
 
   async makequestionsform(testController) {
+    await testController.click('#make-quest');
+    await testController.click('#make-quest1');
     const question = 'A';
     const answer1 = 'B';
     const answer2 = 'C';
