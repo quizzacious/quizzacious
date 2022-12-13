@@ -89,10 +89,6 @@ const MakeQuestions = () => {
                 <ErrorsField />
                 <Card.Text>
                   {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                  <Link to={questionNum > 1 ? `/makeQuestions/${_id}/${questionNum - 1}` : '#'}>Prev</Link>
-                </Card.Text>
-                <Card.Text>
-                  {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                   <Link to={questionNum < 10 ? `/makeQuestions/${_id}/${questionNum + 1}` : '#'}>Next</Link>
                 </Card.Text>
                 <Card.Text>
