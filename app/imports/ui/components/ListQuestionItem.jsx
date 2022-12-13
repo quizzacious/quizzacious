@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button, Card } from 'react-bootstrap';
-import { Trash } from 'react-bootstrap-icons';
+import { Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ListQuestionItem = ({ question, collection }) => {

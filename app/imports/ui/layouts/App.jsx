@@ -26,6 +26,7 @@ import ThisQuiz from '../pages/ThisQuiz';
 import Filter from '../pages/Filter';
 import ListQuestion from '../pages/ListQuestion';
 import EditQuestion from '../pages/EditQuestion';
+import AddContacts from '../pages/AddContacts';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -48,6 +49,7 @@ const App = () => (
         <Route path="/taking/:_id/:take_id/:num" element={<ProtectedRoute><TakingQuiz /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
         <Route path="/contacts/:_id" element={<ProtectedRoute><EditContacts /></ProtectedRoute>} />
+        <Route path="/addprofile" element={<ProtectedRoute><AddContacts /></ProtectedRoute>} />
         <Route path="/make" element={<ProtectedRoute><MakeQuiz /></ProtectedRoute>} />
         <Route path="/makeQuestions/:_id/:num" element={<ProtectedRoute><MakeQuestions /></ProtectedRoute>} />
         <Route path="/list" element={<AdminProtectedRoute><ProfileAdm /></AdminProtectedRoute>} />

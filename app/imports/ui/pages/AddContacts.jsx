@@ -12,6 +12,7 @@ const formSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   address: String,
+  major: String,
   image: String,
   description: String,
 });
@@ -23,10 +24,10 @@ const AddContacts = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { firstName, lastName, address, image, description } = data;
+    const { firstName, lastName, address, major, image, description } = data;
     const owner = Meteor.user().username;
     Contacts.collection.insert(
-      { firstName, lastName, address, image, description, owner },
+      { firstName, lastName, address, major, image, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -44,7 +45,7 @@ const AddContacts = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col className="text-center"><h2>Add Contacts</h2></Col>
+          <Col className="text-center"><h2>Create Your Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -55,6 +56,7 @@ const AddContacts = () => {
                 <Row>
                   <Col><TextField name="address" /></Col>
                   <Col><TextField name="image" /></Col>
+                  <Col><TextField name="major" /></Col>
                 </Row>
                 <LongTextField name="description" />
                 <SubmitField value="Submit" />
