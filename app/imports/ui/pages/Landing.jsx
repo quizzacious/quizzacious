@@ -24,38 +24,18 @@ const Landing = () => (
     <Stack direction="horizontal" gap={4} className="py-lg-2 justify-content-md-evenly">
       <Row>
         <Col className="text-center">
-          <a href="https://github.com/orgs/quizzacious/projects/1/views/2">
-            <Image src="/images/m1.png" width={225} />
+          <a href="https://quizzacious.github.io/">
+            <Image src="/images/site.png" width={225} />
           </a>
-          <p>MILESTONE 1</p>
-          <p className="font3">Our first week milestone and workflow!</p>
+          <p>SITE</p>
+          <p className="font3">Visit our official documentation site!</p>
         </Col>
-      </Row>
-      <Row>
-        <Col className="text-center">
-          <a href="https://github.com/orgs/quizzacious/projects/2">
-            <Image src="/images/m2.png" width={225} />
-          </a>
-          <p>MILESTONE 2</p>
-          <p className="font3">Our second week milestone and workflow!</p>
-        </Col>
-      </Row>
-      <Row>
         <Col className="text-center">
           <a href="https://github.com/orgs/quizzacious/people">
             <Image src="/images/profile.png" width={225} />
           </a>
           <p>ABOUT US</p>
           <p className="font3">Find us and learn about our organization!</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="text-center">
-          <a href="https://quizzacious.github.io/">
-            <Image src="/images/site.png" width={225} />
-          </a>
-          <p>SITE</p>
-          <p className="font3">Visit our official documentation site!</p>
         </Col>
       </Row>
     </Stack>
