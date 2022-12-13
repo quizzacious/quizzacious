@@ -26,7 +26,9 @@
   ],
   "defaultQuizzes": [
     { "_id": "507f191e810c19729de860ea", "title": "Math Quiz", "subject": "Math", "description": "A simple math quiz.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "admin@foo.com" },
-    { "_id": "00000020f51bb4362eee2a4d", "title": "Bad Quiz", "subject": "your mom", "description": "git rekt nerd.", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "john@foo.com" }
+    { "_id": "507f191e810c19729cs314ez", "title": "ADMIN ONLY", "subject": "Example", "description": "Something only visible to the admin", "createdAt": "2022-11-20T19:24:55.221Z", "owner": "admin@foo.com" },
+    { "_id": "00000020f51bb4362eee2a4d", "title": "Bad Quiz", "subject": "Computer Science", "description": "Don't do it...", "createdAt": "2022-11-15T19:24:55.221Z", "owner": "john@foo.com" },
+    { "_id": "00000020f51bb4362eee2y5r", "title": "Example Quiz", "subject": "Example", "description": "An example of a quiz you can make", "createdAt": "2022-11-16T19:24:55.221Z", "owner": "john@foo.com" }
   ],
   "defaultQuestions": [
     {
@@ -68,6 +70,36 @@
       "answer3": "this is just to demonstrate a problematic quiz, plz don't hurt me",
       "answer4": "-1",
       "answerFinal": "1"
+    },
+    {
+      "quiz": "00000020f51bb4362eee2y5r",
+      "questionNum": 1,
+      "question": "Question goes here",
+      "answer1": "First answer here",
+      "answer2": "Second answer here",
+      "answer3": "Third answer here",
+      "answer4": "Fourth answer here",
+      "answerFinal": "3"
+    },
+    {
+      "quiz": "00000020f51bb4362eee2y5r",
+      "questionNum": 2,
+      "question": "What does ICS314 mean to you?",
+      "answer1": "Wonderful learning experience",
+      "answer2": "Java da Hut",
+      "answer3": "WOD WOD WOD",
+      "answer4": "First answer is the correct answer",
+      "answerFinal": "1"
+    },
+    {
+      "quiz": "507f191e810c19729cs314ez",
+      "questionNum": 1,
+      "question": "Isn't it cool that only you can see this?",
+      "answer1": "Uhuh",
+      "answer2": "Yeah",
+      "answer3": "Sure",
+      "answer4": "Ok",
+      "answerFinal": "3"
     }
   ]
 }
