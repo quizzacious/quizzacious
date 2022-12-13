@@ -22,8 +22,10 @@ const QuizPage = () => {
     // Get access to Quizzes documents.
     const subscription = Meteor.subscribe(Quizzes.userPublicationName);
     const subscription2 = Meteor.subscribe(TakenQuizzes.userPublicationName);
+    const subscription3 = Meteor.subscribe(Questions.userPublicationName);
+    const subscription4 = Meteor.subscribe(InputtedAnswers.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready() && subscription2.ready();
+    const rdy = subscription.ready() && subscription2.ready() && subscription3.ready() && subscription4.ready();
     // Get the document
     const quizItem = Quizzes.collection.findOne(_id);
     const takenItem = TakenQuizzes.collection.find({ quiz: _id }).fetch();
