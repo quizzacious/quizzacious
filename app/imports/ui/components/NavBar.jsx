@@ -17,7 +17,7 @@ const NavBar = () => {
         <Navbar.Brand as={NavLink} to="/home" key="home">
           <Stack direction="horizontal">
 
-            <Image src="/images/logo.png" height="115px" />
+            <Image src="/images/or.png" height="115px" />
 
           </Stack>
         </Navbar.Brand>
