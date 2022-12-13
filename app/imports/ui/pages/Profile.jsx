@@ -23,6 +23,24 @@ const Profile = () => {
       ready: rdy,
     };
   }, []);
+
+  const newProfile = () => {
+    if (contacts[0]) {
+      return <div />;
+    }
+    return (
+      <div>
+        <Card.Footer as="h5">Create Your Own Profile</Card.Footer>
+        <Card.Body>
+          <Card.Title>Create Your Profile!</Card.Title>
+          <Card.Text>Use the button to create your own profile . .
+          </Card.Text>
+          <Button href="/addprofile">Profile</Button>
+        </Card.Body>
+      </div>
+    );
+  };
+
   return (ready ? (
     <Container>
       <Row className="justify-content-center">
@@ -45,12 +63,7 @@ const Profile = () => {
               <Card.Text>Look at what you have taken in the past and see what you can do better . . .</Card.Text>
               <Button href="/history">Quiz History</Button>
             </Card.Body>
-            <Card.Footer as="h5">Create Your Own Profile</Card.Footer>
-            <Card.Body>
-              <Card.Title>Create Your Profile!</Card.Title>
-              <Card.Text>Use the button to create your own profile . . .</Card.Text>
-              <Button href="/addprofile">Profile</Button>
-            </Card.Body>
+            {newProfile()}
           </Card>
         </Col>
       </Row>
