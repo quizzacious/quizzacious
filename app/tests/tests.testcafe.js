@@ -53,7 +53,7 @@ test('Test the makequestions', async (testController) => {
   await signoutPage.isDisplayed(testController);
 });
 
-test.only('Test the takequiz', async (testController) => {
+test('Test the takequiz', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.isLoggedIn(testController, credentials.username);
