@@ -18,7 +18,6 @@ const ListQuizItem = ({ quiz, collection }) => {
       <Card.Body>
         <Card.Text>
           <p>Subject: {quiz.subject}</p>
-          <p>Rating:</p>
           <p>Description: {quiz.description}</p>
           <Link className="p-3" to={`/edit/${quiz._id}`}>Edit This Quiz</Link>
           <Link id="make-quest" className="p-4" to={`/thisQuiz/${quiz._id}`}>Make Questions</Link>
