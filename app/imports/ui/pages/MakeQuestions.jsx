@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import swal from 'sweetalert';
@@ -84,7 +84,7 @@ const MakeQuestions = () => {
                 <TextField id="make-questions2" name="answer2" />
                 <TextField id="make-questions3" name="answer3" />
                 <TextField id="make-questions4" name="answer4" />
-                <TextField id="make-questions5" name="answerFinal" />
+                <SelectField id="make-questions5" name="answerFinal" />
                 <SubmitField id="make-questions-submit" value="Save" />
                 <ErrorsField />
                 <Card.Text>
