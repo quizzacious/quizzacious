@@ -14,7 +14,7 @@ const QuizItem = ({ quiz }) => (
         Subject: {quiz.subject}
       </Card.Text>
       <Card.Text>
-        Creator: {quiz.owner}
+        Creator: <Link key="creator" to={`/profile/${quiz.owner}`}>{quiz.owner}</Link>
       </Card.Text>
       <Card.Text>
         Description: {quiz.description}

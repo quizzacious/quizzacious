@@ -73,9 +73,6 @@ const QuizPage = () => {
                 Subject: {_quiz.subject}
               </Card.Text>
               <Card.Text>
-                Rating:
-              </Card.Text>
-              <Card.Text>
                 Description: {_quiz.description}
               </Card.Text>
               <Card.Text>

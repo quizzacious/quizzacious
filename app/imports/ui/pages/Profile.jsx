@@ -2,12 +2,14 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Contact from '../components/Contact';
 import { Contacts } from '../../api/contact/Contacts';
 
 /* Renders a table containing all of the Quizzes documents. Use <QuizItem> to render each row. */
 const Profile = () => {
+  const { user } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, contacts } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -17,12 +19,12 @@ const Profile = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Quizzes documents
-    const contactItems = Contacts.collection.find({}).fetch();
+    const contactItems = Contacts.collection.find({ owner: user }).fetch();
     return {
       contacts: contactItems,
       ready: rdy,
     };
-  }, []);
+  }, [user]);
 
   const newProfile = () => {
     if (contacts[0]) {
@@ -41,14 +43,11 @@ const Profile = () => {
     );
   };
 
-  return (ready ? (
-    <Container>
-      <Row className="justify-content-center">
-        <Col className="py-5">
-          <Row>
-            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} /></Col>))}
-          </Row>
-        </Col>
+  const isMe = (user === Meteor.user().username);
+
+  const profileOptions = () => {
+    if (isMe) {
+      return (
         <Col md={7} className="py-5">
           <Card>
             <Card.Header as="h5">Check Your Own Quizzes</Card.Header>
@@ -66,6 +65,20 @@ const Profile = () => {
             {newProfile()}
           </Card>
         </Col>
+      );
+    }
+    return <div />;
+  };
+
+  return (ready ? (
+    <Container>
+      <Row className="justify-content-center">
+        <Col className="py-5">
+          <Row>
+            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} showOptions={isMe} /></Col>))}
+          </Row>
+        </Col>
+        {profileOptions()}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
